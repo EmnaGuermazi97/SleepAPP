@@ -1,4 +1,5 @@
 # tutorials_test
+this project started by testing few tutorials and it ended up to be the main project
 
 A new Flutter project.
 
