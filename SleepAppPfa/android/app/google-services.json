@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1001112482332",
+    "firebase_url": "https://sleepapppfa-e7cb8.firebaseio.com",
+    "project_id": "sleepapppfa-e7cb8",
+    "storage_bucket": "sleepapppfa-e7cb8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001112482332:android:6fde3dba5ec2c74da4e5d9",
+        "android_client_info": {
+          "package_name": "com.example.tutorials_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1001112482332-54ahtaou38bjjqcgbspm98vmcjursa1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPsFE1SmYgAiuw5SPADPmnc7H1bSLK6iI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1001112482332-54ahtaou38bjjqcgbspm98vmcjursa1i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
