@@ -30,7 +30,7 @@ class _JournalPageState extends State<JournalPage> {
                 child: new Text('Logout',
                     style: new TextStyle(fontSize: 17.0, color: Colors.white)),
                 //onPressed: signOut
-                )
+                )    
           ],
         ),
        /* appBar: AppBar(
