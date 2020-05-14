@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:tutorials_test/models/articlesClasses.dart';
+import 'package:tutorials_test/screens/ScreenArticle.dart';
+import '../widgets.dart';
 
-import 'constants.dart';
-
-class DietRecommendation extends StatelessWidget {
+class DietRecommendationPage extends StatefulWidget {
   @override
+  _DietRecommendationPage createState() => _DietRecommendationPage();
+}
+
+class _DietRecommendationPage extends State<DietRecommendationPage> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-
-    return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Container(
-            height: size.height * .45,
-            decoration: BoxDecoration(
-              color: kBlueLightColor,
+    return SafeArea(
+        child: Scaffold(
+            appBar: AppBar(
+              leading: Container(),
+              title: Text("Diet Recommendation"),
+              centerTitle: true,
             ),
-          ),
-        ],
-      ),
-    );
+            bottomNavigationBar: customNavBar(context, 0),
+            body: ScreenArticle(article: articlesHelpMe[0],),
+          
+            )
+            );
   }
 }

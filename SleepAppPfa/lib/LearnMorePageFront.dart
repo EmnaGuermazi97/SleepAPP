@@ -14,7 +14,7 @@ class _LearnMorePageState extends State<LearnMorePage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: Container(),   
+          leading: Container(),
           title: Text("Learn More"),
           centerTitle: true,
         ),
@@ -75,28 +75,27 @@ class _LearnMorePageState extends State<LearnMorePage> {
                     itemCount: articles.length,
                     itemBuilder: (BuildContext context, int index) {
                       ArticleLearnMore articlee = articles[index];
-                      return GestureDetector(   onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => ArticleLearnScreen(
-                      article: articlee
-                    ),
-                  ),
-                ),
-                                              child: Container(
-                           decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20.0),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black26,
-                                offset: Offset(0.0, 2.0),
-                                blurRadius: 6.0,
-                              ),
-                            ],
+                      return GestureDetector(
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) =>
+                                ArticleLearnScreen(article: articlee),
                           ),
+                        ),
+                        child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20.0),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black26,
+                                  offset: Offset(0.0, 2.0),
+                                  blurRadius: 6.0,
+                                ),
+                              ],
+                            ),
                             margin: EdgeInsets.all(12.0),
-                            
                             width: 240.0,
                             height: 105.0,
                             child: Stack(
@@ -108,7 +107,8 @@ class _LearnMorePageState extends State<LearnMorePage> {
                                   child: Stack(
                                     children: <Widget>[
                                       ClipRRect(
-                                        borderRadius: BorderRadius.circular(20.0),
+                                        borderRadius:
+                                            BorderRadius.circular(20.0),
                                         child: Image(
                                           height: 280.0,
                                           width: 220.0,
@@ -139,5 +139,3 @@ class _LearnMorePageState extends State<LearnMorePage> {
     );
   }
 }
-
-

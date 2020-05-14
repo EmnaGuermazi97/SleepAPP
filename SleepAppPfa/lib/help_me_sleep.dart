@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'screens/constants.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
+// import 'screens/constants.dart';
 import 'screens/diet_recommendation.dart';
 import 'screens/meditation.dart';
 import 'package:flutter/widgets.dart';
 
 import 'widgets.dart';
 
-
-
 class HelpMeSleepPage extends StatefulWidget {
-    @override
+  @override
   _HelpMeSleepState createState() => _HelpMeSleepState();
 }
+
 class _HelpMeSleepState extends State<HelpMeSleepPage> {
   @override
   Widget build(BuildContext context) {
@@ -20,13 +19,12 @@ class _HelpMeSleepState extends State<HelpMeSleepPage> {
         .size; //this gonna give us total height and width of our device
     return Scaffold(
       appBar: AppBar(
-          leading: Container(),
-          title: Text('Tips & Tricks'),
-          centerTitle: true,
-        ),
-        backgroundColor: Color(0xffeaf6ff),
-        
-        bottomNavigationBar: customNavBar(context, 0),
+        leading: Container(),
+        title: Text('Tips & Tricks'),
+        centerTitle: true,
+      ),
+      backgroundColor: Color(0xffeaf6ff),
+      bottomNavigationBar: customNavBar(context, 0),
       body: Stack(
         children: <Widget>[
           Container(
@@ -43,7 +41,7 @@ class _HelpMeSleepState extends State<HelpMeSleepPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    padding: const EdgeInsets.symmetric(vertical: 50.0),
                     child: Text(
                       "Say Goodbye to bad quality sleep !! ",
                       textAlign: TextAlign.center,
@@ -52,21 +50,6 @@ class _HelpMeSleepState extends State<HelpMeSleepPage> {
                             color: Colors.cyan[600],
                             fontSize: 30,
                           ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 30),
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(29.5),
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: "Search",
-                        icon: SvgPicture.asset("assets/icons/search.svg"),
-                        border: InputBorder.none,
-                      ),
                     ),
                   ),
                   Expanded(
@@ -82,14 +65,19 @@ class _HelpMeSleepState extends State<HelpMeSleepPage> {
                           press: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return DietRecommendation();
+                              return DietRecommendationPage();
                             }));
                           },
                         ),
                         CategoryCard(
                           title: "Excercices for a better sleep",
                           svgSrc: "assets/icons/Excrecises.svg",
-                          press: () {},
+                          press: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return MeditationPage();
+                            }));
+                          },
                         ),
                         CategoryCard(
                           title: "Meditation",
@@ -97,14 +85,19 @@ class _HelpMeSleepState extends State<HelpMeSleepPage> {
                           press: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return Meditation();
+                              return MeditationPage();
                             }));
                           },
                         ),
                         CategoryCard(
                           title: "Relaxing Music",
                           svgSrc: "assets/icons/yoga.svg",
-                          press: () {},
+                          press: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return MeditationPage();
+                            }));
+                          },
                         ),
                       ],
                     ),
@@ -117,6 +110,4 @@ class _HelpMeSleepState extends State<HelpMeSleepPage> {
       ),
     );
   }
-
-
 }
