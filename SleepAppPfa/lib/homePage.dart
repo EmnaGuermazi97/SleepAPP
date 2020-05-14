@@ -1,37 +1,60 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tutorials_test/journalPage.dart';
+import 'package:tutorials_test/profilePage.dart';
 import 'services/authentication.dart';
 import 'widgets.dart';
 
-
-
-
 class HomePage extends StatefulWidget {
-   HomePage({Key key, this.auth, this.userId, this.logoutCallback})
-      : super(key: key);
+  HomePage({Key key, this.auth, this.userId, this.logoutCallback})
+      : super(key: key){print("this is actual HomePage/n");
+     print("this is user Id/n"+userId);}
+
 
   final BaseAuth auth;
   final VoidCallback logoutCallback;
   final String userId;
-  
+
   @override
   _HomePageState createState() => _HomePageState();
-  
 }
 
 class _HomePageState extends State<HomePage> {
-  
+ 
+  signOut() async {
+    try {
+      print("i am at homePageNavbar");
+      print("this sign out");
+      print(widget.userId);
+      await widget.auth.signOut();
+      print('this is after the sigout  function');
+      widget.logoutCallback();
+    print('this is after the logoutCallback function');
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold( 
-       /*   appBar: new AppBar(
+      child: Scaffold(
+        appBar: new AppBar(
+          title: new Text('Home'),
+          centerTitle: true,
+          actions: <Widget>[
+            new FlatButton(
+                child: new Text('Logout',
+                    style: new TextStyle(fontSize: 17.0, color: Colors.white)),
+                onPressed: signOut)
+          ],
+        ),
+        /*   appBar: new AppBar(
           title: new Text('Home'),
           centerTitle: true,
        
         ),*/
-      
+
         backgroundColor: Color(0xffeaf6ff),
         body: Center(
           child: Container(
@@ -46,16 +69,22 @@ class _HomePageState extends State<HomePage> {
                       img: 'assets/images/learn.png',
                       routeName: '/learnMorePage'),
                   navigationButton(context, 'Help Me Sleep',
-                      img: 'assets/images/help.png',routeName: '/help_me_sleep'),
+                      img: 'assets/images/help.png',
+                      routeName: '/help_me_sleep'),
                   navigationButton(context, 'Insomnia Sleep Index',
-                      img: 'assets/images/isi.png',routeName:'/ISIPage' ),
-                     
+                      img: 'assets/images/isi.png', routeName: '/ISIPage'),
                 ]),
           ),
         ),
-        bottomNavigationBar: customNavBar(context, 0),
+         bottomNavigationBar: customNavBar(
+          context,
+          0,
+          userId: widget.userId,
+          auth: widget.auth,
+          logoutCallback: widget.logoutCallback,
+        ),
+     
       ),
     );
   }
-
 }

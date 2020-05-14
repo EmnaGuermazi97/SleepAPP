@@ -251,7 +251,7 @@ class _HomePageState extends State<HomePageVerif> {
   @override
    Widget build(BuildContext context) {
     return new Scaffold(
-       appBar: new AppBar(
+     /*  appBar: new AppBar(
           title: new Text('Home'),
           actions: <Widget>[
             new FlatButton(
@@ -259,8 +259,10 @@ class _HomePageState extends State<HomePageVerif> {
                     style: new TextStyle(fontSize: 17.0, color: Colors.white)),
                 onPressed: signOut)
           ],
-        ),
-        body: new HomePage(),
+        ),*/
+        body: new HomePage(userId: widget.userId,
+            auth: widget.auth,
+            logoutCallback: widget.logoutCallback,),
         //showTodoList(),
         /*floatingActionButton: FloatingActionButton(
           onPressed: () {

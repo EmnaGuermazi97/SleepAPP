@@ -28,6 +28,10 @@ dependencies:
   firebase_auth: ^0.14.0+5
   firebase_database: ^3.0.7
   flutter_facebook_login: ^1.1.1
+  firebase_storage: ^3.0.6
+  #firebase_storage: ^2.1.0+1
+  font_awesome_flutter: ^8.2.0
+  image_picker: ^0.5.3+1
 
 dev_dependencies:
   flutter_test:

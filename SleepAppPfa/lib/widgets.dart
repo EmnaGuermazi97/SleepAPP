@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tutorials_test/homePage.dart';
+import 'package:tutorials_test/journalPage.dart';
+import 'package:tutorials_test/profilePage.dart';
+import 'package:tutorials_test/services/authentication.dart';
 import 'screens/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -166,7 +170,8 @@ Widget submitButton(BuildContext context, String title) {
   );
 }
 
-Widget customNavBar(BuildContext context, int activeIndex) {
+Widget customNavBar(BuildContext context, int activeIndex,
+    {BaseAuth auth, VoidCallback logoutCallback, String userId}) {
   return CupertinoTabBar(
     backgroundColor: Theme.of(context).primaryColor,
     activeColor: Theme.of(context).accentColor,
@@ -179,7 +184,16 @@ Widget customNavBar(BuildContext context, int activeIndex) {
             size: 40.0,
           ),
           onPressed: () {
-            Navigator.pushReplacementNamed(context, '/homePage');
+            
+           print('this is HomePage');
+            print('this is userId  '+userId);
+             Navigator.push(context,MaterialPageRoute(builder: (context) =>HomePage(
+                userId: userId, auth: auth, logoutCallback: logoutCallback 
+                )
+                ));
+         /* return  new HomePage(
+                userId: userId, auth: auth, logoutCallback: logoutCallback);
+             Navigator.pushReplacementNamed(context, '/homePage');*/
           },
         ),
       ),
@@ -190,7 +204,16 @@ Widget customNavBar(BuildContext context, int activeIndex) {
             size: 40.0,
           ),
           onPressed: () {
-            Navigator.pushReplacementNamed(context, '/journalPage');
+          //  print('this is JournalPage');
+          //  print('this is userId  '+userId);
+          //Navigator.pop(context);
+            Navigator.push(context,MaterialPageRoute(builder: (context) =>JournalPage(
+                userId: userId, auth: auth, logoutCallback: logoutCallback 
+                )
+                ));
+          /* return new JournalPage(
+                userId: userId, auth: auth, logoutCallback: logoutCallback);*/
+           // Navigator.pushReplacementNamed(context, '/journalPage');
           },
         ),
       ),
@@ -201,7 +224,16 @@ Widget customNavBar(BuildContext context, int activeIndex) {
             size: 40.0,
           ),
           onPressed: () {
-            Navigator.pushReplacementNamed(context, '/profilePage');
+            
+         print('this is ProfilePage');
+         print('this is userId  '+userId);
+            Navigator.push(context,MaterialPageRoute(builder: (context) =>ProfilePage(
+                userId: userId, auth: auth, logoutCallback: logoutCallback 
+                )
+                ));
+           /*new ProfilePage(
+                userId: userId, auth: auth, logoutCallback: logoutCallback);
+           // Navigator.pushReplacementNamed(context, '/profilePage');*/
           },
         ),
       ),
@@ -213,7 +245,8 @@ Widget navigationButton(BuildContext context, String title,
     {String img, String routeName}) {
   return Container(
     decoration: BoxDecoration(borderRadius: BorderRadius.circular(15.0)),
-    width: MediaQuery.of(context).size.width * 0.9,//it was *0.8 i don't mind wat it is ,juste 7abit na7i el erreur for now
+    width: MediaQuery.of(context).size.width *
+        0.9, //it was *0.8 i don't mind wat it is ,juste 7abit na7i el erreur for now
     height: MediaQuery.of(context).size.height / 12,
     child: RaisedButton(
         elevation: 7.0,
@@ -249,15 +282,13 @@ Widget articleStructure({String title, String paragraphe}) {
       padding: const EdgeInsets.only(
           top: 10.0, right: 10.0, left: 10.0, bottom: 20.0),
       child: Container(
-        decoration: BoxDecoration(
-            boxShadow: [
-                 BoxShadow(
-                        color: Colors.lightBlue[50],
-                        // has the effect of softening the shadow
-                        spreadRadius:
-                            4.0, // has the effect of extending the shadow
-                      ),],
-            borderRadius: BorderRadius.circular(40.0), color: Colors.white),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Colors.lightBlue[50],
+            // has the effect of softening the shadow
+            spreadRadius: 4.0, // has the effect of extending the shadow
+          ),
+        ], borderRadius: BorderRadius.circular(40.0), color: Colors.white),
         child: Column(
           children: <Widget>[
             Padding(
@@ -285,6 +316,7 @@ Widget articleStructure({String title, String paragraphe}) {
         ),
       ));
 }
+
 Widget carouselItem(BuildContext context, Widget question) {
   return Container(
       width: MediaQuery.of(context).size.width,
@@ -295,6 +327,7 @@ Widget carouselItem(BuildContext context, Widget question) {
         child: question,
       ));
 }
+
 class CategoryCard extends StatelessWidget {
   final String svgSrc;
   final String title;
