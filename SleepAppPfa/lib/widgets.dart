@@ -4,7 +4,7 @@ import 'package:tutorials_test/homePage.dart';
 import 'package:tutorials_test/journalPage.dart';
 import 'package:tutorials_test/profilePage.dart';
 import 'package:tutorials_test/services/authentication.dart';
-import 'screens/constants.dart';
+// import 'screens/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 Widget appLogo(String title, String img) {
@@ -351,7 +351,7 @@ class CategoryCard extends StatelessWidget {
               offset: Offset(0, 17),
               blurRadius: 17,
               spreadRadius: -23,
-              color: kShadowColor,
+              color: Color(0xFFE6E6E6),
             ),
           ],
         ),

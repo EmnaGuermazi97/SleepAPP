@@ -9,7 +9,6 @@ import 'package:tutorials_test/widgets.dart';
 
 class ScreenArticle extends StatefulWidget {
   final Article article;
-  final def = "Carbs";
   ScreenArticle({this.article});
 
   @override
@@ -69,6 +68,8 @@ class _ScreenArticle extends State<ScreenArticle> {
                             borderRadius: BorderRadius.circular(20.0),
                             child: Image(
                               image: AssetImage(widget.article.imageUrlA),
+                              height: 300,
+                              width: 500,
                             ),
                           ),
                         ),

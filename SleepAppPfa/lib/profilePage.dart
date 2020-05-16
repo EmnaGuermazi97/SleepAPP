@@ -8,7 +8,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 import 'package:path/path.dart';
 import 'package:flutter/services.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+//import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({Key key, this.auth, this.userId, this.logoutCallback})
@@ -214,7 +214,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     controller: controllerBirthday,
 
                                     /*onChanged: (text) {
-                                      birthdayValue = text;
+                                      birthdayValue = text; 
                                     },*/
                                     style: TextStyle(
                                         color: Colors.black,

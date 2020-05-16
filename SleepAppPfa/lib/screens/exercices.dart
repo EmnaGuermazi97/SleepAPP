@@ -3,22 +3,24 @@ import 'package:tutorials_test/models/articlesClasses.dart';
 import 'package:tutorials_test/screens/ScreenArticle.dart';
 import '../widgets.dart';
 
-class DietRecommendationPage extends StatefulWidget {
+class ExercicesPage extends StatefulWidget {
   @override
-  _DietRecommendationPage createState() => _DietRecommendationPage();
+  _ExercicesPage createState() => _ExercicesPage();
 }
 
-class _DietRecommendationPage extends State<DietRecommendationPage> {
+class _ExercicesPage extends State<ExercicesPage> {
   Widget build(BuildContext context) {
+      print(articlesHelpMe.length);
     return SafeArea(
         child: Scaffold(
             appBar: AppBar(
               leading: Container(),
-              title: Text("Diet Recommendation"),
+              title: Text("Exercices For Better Sleep"),
               centerTitle: true,
             ),
             bottomNavigationBar: customNavBar(context, 0),
-            body: ScreenArticle(article: articlesHelpMe[0],),
+            body: ScreenArticle(article: articlesHelpMe[1]),
+            
           
             )
             );

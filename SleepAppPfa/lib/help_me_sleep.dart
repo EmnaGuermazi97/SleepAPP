@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
-// import 'screens/constants.dart';
+import 'package:tutorials_test/screens/exercices.dart';
+
 import 'screens/diet_recommendation.dart';
 import 'screens/meditation.dart';
 import 'package:flutter/widgets.dart';
@@ -75,7 +75,7 @@ class _HelpMeSleepState extends State<HelpMeSleepPage> {
                           press: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return MeditationPage();
+                              return ExercicesPage();
                             }));
                           },
                         ),
