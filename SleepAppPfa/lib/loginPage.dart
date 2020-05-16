@@ -55,7 +55,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, '/signupPage');
+                  //Navigator.pushNamed(context, '/signupPage');
+                  Navigator.of(context).popUntil((route) => route.isFirst); // 내 사랑 Changed this !
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

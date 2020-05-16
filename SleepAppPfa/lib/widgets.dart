@@ -185,15 +185,14 @@ Widget customNavBar(BuildContext context, int activeIndex,
           ),
           onPressed: () {
             
-           print('this is HomePage');
+            print('this is HomePage');
             print('this is userId  '+userId);
-             Navigator.push(context,MaterialPageRoute(builder: (context) =>HomePage(
-                userId: userId, auth: auth, logoutCallback: logoutCallback 
-                )
-                ));
-         /* return  new HomePage(
-                userId: userId, auth: auth, logoutCallback: logoutCallback);
-             Navigator.pushReplacementNamed(context, '/homePage');*/
+            Navigator.of(context).popUntil((route) => route.isFirst);
+            //Navigator.push(context,MaterialPageRoute(builder: (context) =>HomePage(
+            //    userId: userId, auth: auth, logoutCallback: logoutCallback 
+            //    )
+            //    ));
+       
           },
         ),
       ),
@@ -204,16 +203,15 @@ Widget customNavBar(BuildContext context, int activeIndex,
             size: 40.0,
           ),
           onPressed: () {
-          //  print('this is JournalPage');
-          //  print('this is userId  '+userId);
+           print('this is JournalPage');
+           print('this is userId  '+userId);
           //Navigator.pop(context);
+            //Navigator.of(context).popUntil((route) => route.isFirst);
             Navigator.push(context,MaterialPageRoute(builder: (context) =>JournalPage(
                 userId: userId, auth: auth, logoutCallback: logoutCallback 
                 )
                 ));
-          /* return new JournalPage(
-                userId: userId, auth: auth, logoutCallback: logoutCallback);*/
-           // Navigator.pushReplacementNamed(context, '/journalPage');
+         
           },
         ),
       ),
@@ -225,8 +223,9 @@ Widget customNavBar(BuildContext context, int activeIndex,
           ),
           onPressed: () {
             
-         print('this is ProfilePage');
-         print('this is userId  '+userId);
+         //print('this is ProfilePage');
+         //print('this is userId  '+userId);
+           // Navigator.of(context).popUntil((route) => route.isFirst);
             Navigator.push(context,MaterialPageRoute(builder: (context) =>ProfilePage(
                 userId: userId, auth: auth, logoutCallback: logoutCallback 
                 )

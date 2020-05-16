@@ -26,11 +26,11 @@ class _JournalPageState extends State<JournalPage> {
           title: new Text('JournalPage'),
           centerTitle: true,
           actions: <Widget>[
-            new FlatButton(
+          /*  new FlatButton(
                 child: new Text('Logout',
                     style: new TextStyle(fontSize: 17.0, color: Colors.white)),
                 //sonPressed: signOut
-                )    
+                )  */  
           ],
         ),
        /* appBar: AppBar(
@@ -51,5 +51,3 @@ class _JournalPageState extends State<JournalPage> {
     );
   }
 }
-
-void main() {}

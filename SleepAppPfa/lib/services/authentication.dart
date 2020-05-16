@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 abstract class BaseAuth {
   Future<String> signIn(String email, String password);
@@ -29,7 +30,14 @@ class Auth implements BaseAuth {
     AuthResult result = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
     FirebaseUser user = result.user;
-    return user.uid;
+    await FirebaseDatabase.instance.reference().child('users').child(user.uid).set({
+      'UserID': user.uid,
+      'userName': "",
+      'birthDay': "",
+      'location': "",
+    }).catchError((onError)=>print(onError));
+
+    return user.uid; //de type String
   }
 
   Future<FirebaseUser> getCurrentUser() async {
