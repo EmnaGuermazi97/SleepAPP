@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tutorials_test/widgets/CategoryCard.dart';
 import 'package:tutorials_test/widgets/customNavBar.dart';
+import '../../models/CategoryCardClass.dart';
 import 'diet_recommendation.dart';
 import 'exercices.dart';
 import 'meditation.dart';
