@@ -9,7 +9,7 @@ class Utilisateur {
   String email;
   Utilisateur(String userid) {
     this.userID = userid;
-    var db = FirebaseDatabase.instance.reference().child("users");
+    /*var db = FirebaseDatabase.instance.reference().child("users");
     db.once().then((DataSnapshot snapshot) {
       Map<dynamic, dynamic> values = snapshot.value;
       values.forEach((key, values) {
@@ -21,8 +21,10 @@ class Utilisateur {
           print(this.email);
         }
       });
-    });
+    }
+    );*/
   }
+ 
 /*db = FirebaseDatabase.instance.reference().child("zoom_users");
 db.once().then((DataSnapshot snapshot){
   Map<dynamic, dynamic> values = snapshot.value;
@@ -31,7 +33,7 @@ db.once().then((DataSnapshot snapshot){
     });
  });*/
   /*
-  Utilisateur loadUserData(userid) {
+  loadUserData(userid) {
     Utilisateur user = new Utilisateur(userid);
     var db = FirebaseDatabase.instance.reference().child("users");
     db.once().then((DataSnapshot snapshot) {
@@ -47,6 +49,23 @@ db.once().then((DataSnapshot snapshot){
     return user;
   }
 */
+  loadUserData(String userid)async {
+    this.userID=userid;
+    var db = FirebaseDatabase.instance.reference().child("users");
+    await db.once().then((DataSnapshot snapshot) {
+      Map<dynamic, dynamic> values = snapshot.value;
+      values.forEach((key, values) {
+        if (values['UserID'] == this.userID) {
+          this.userName = values['userName'];
+          this.birthDay = values['birthDay'];
+          this.location = values['location'];
+          this.email = values['Email'];
+          
+        }
+      });
+    });
+    
+  }
   Map<String, dynamic> toJason() => {
         'UserID': userID,
         'userName': userName,
