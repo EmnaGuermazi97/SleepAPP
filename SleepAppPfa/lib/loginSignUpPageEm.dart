@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'screens/LearnMoreActualPage.dart';
+
 import 'services/authentication.dart';
 import 'widgets.dart';
 import 'models/learnMoreArticlesClasses.dart';
@@ -9,8 +9,8 @@ import 'homePage.dart';
 import 'journalPage.dart';
 
 import 'profilePage.dart';
-import 'signupPage.dart';
-import 'loginPage.dart';
+
+
 
 
 

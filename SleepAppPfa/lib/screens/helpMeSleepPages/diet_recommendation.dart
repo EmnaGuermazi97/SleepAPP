@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/articlesClasses.dart';
-import 'package:tutorials_test/screens/ScreenArticle.dart';
-import '../widgets.dart';
+import 'package:tutorials_test/screens/helpMeSleepPages/ScreenArticle.dart';
+import 'package:tutorials_test/widgets.dart';
+
+
 
 class DietRecommendationPage extends StatefulWidget {
   @override

@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/UitlisateurClass.dart';
 import 'package:tutorials_test/services/authentication.dart';
@@ -11,27 +12,22 @@ import 'package:flutter/services.dart';
 //import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProfilePage extends StatefulWidget {
-  ProfilePage({Key key, this.auth, this.userId, this.logoutCallback})
+  ProfilePage({Key key, this.auth, this.userId, this.logoutCallback, this.user})
       : super(key: key);
-
+  final Utilisateur user;
   final BaseAuth auth;
   final VoidCallback logoutCallback;
   final String userId;
 
-  void PUserName() {
+  /*void PUserName() {
     print("Hii " + createState().userNameValue);
-  }
+  }*/
 
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  TextEditingController controllerBirthday = TextEditingController();
-  Uitlisateur user = new Uitlisateur();
-  
-
-  
   bool monVal = false;
   File _image;
   String userNameValue;
@@ -54,6 +50,21 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    //print(widget.userId);
+    //widget.user = new Utilisateur(userID:widget.userId);
+    //widget.user = widget.user.loadUserData(widget.userId);
+    TextEditingController controllerBirthday = TextEditingController();
+    TextEditingController controllerUserName = TextEditingController();
+    TextEditingController controllerLocation = TextEditingController();
+    //TextEditingController controllerEmail = TextEditingController();
+
+    controllerBirthday.text = widget.user.birthDay;
+    controllerUserName.text = widget.user.userName;
+    controllerLocation.text = widget.user.location;
+    print('this is email in profil Page'+widget.user.email);
+
+    //print('this is inside build');
+    //print(widget.user.birthDay);
     Future getImage() async {
       var image = await ImagePicker.pickImage(source: ImageSource.gallery);
 
@@ -164,10 +175,11 @@ class _ProfilePageState extends State<ProfilePage> {
                               child: Container(
                                 width: 150,
                                 child: new TextField(
-                                    onChanged: (text) {
-                                      userNameValue = text;
-                                      widget.PUserName();
-                                    },
+                                    /* onChanged: (text) {
+                                      widget.user.userName=text;
+                                      print('the new temp value is  '+widget.user.userName);
+                                    },*/
+                                    controller: controllerUserName,
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 20.0,
@@ -208,13 +220,18 @@ class _ProfilePageState extends State<ProfilePage> {
                               child: Container(
                                 width: 150,
                                 child: new TextField(
-                                  decoration: InputDecoration(
-                                   // hintText: "Add and Submit"
-                                  ),
-                                    controller: controllerBirthday,
+                                    decoration: InputDecoration(
 
-                                    /*onChanged: (text) {
+                                        // hintText: "Add and Submit"
+                                        ),
+                                    controller: controllerBirthday,
+                                    
+                                    
+
+                                  /*  onChanged: (text) {
                                       birthdayValue = text; 
+                                      widget.user.birthDay=text;
+                                      print('the new temp value is  '+widget.user.birthDay);
                                     },*/
                                     style: TextStyle(
                                         color: Colors.black,
@@ -226,7 +243,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 50.0,),
+                        padding: const EdgeInsets.only(
+                          left: 50.0,
+                        ),
                         child: Container(
                           /*child: Checkbox(checkColor:Colors.blue,
                               value: monVal,materialTapTargetSize:MaterialTapTargetSize.padded,
@@ -243,7 +262,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               }
                               ),*/
 
-                           child: Icon(
+                          child: Icon(
                             FontAwesomeIcons.pen,
                             color: Color(0xff476cfb),
                           ),
@@ -271,10 +290,12 @@ class _ProfilePageState extends State<ProfilePage> {
                               child: Container(
                                 width: 150,
                                 child: new TextField(
-                                    onChanged: (text) {
-                                      adressValue = text;
-                                      print(adressValue);
-                                    },
+                                    controller: controllerLocation,
+                                    /*   onChanged: (text) {
+                                      
+                                      widget.user.location=text;
+                                      print('the new temp value is  '+widget.user.location);
+                                    },*/
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 20.0,
@@ -304,7 +325,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             style: TextStyle(
                                 color: Colors.blueGrey, fontSize: 18.0)),
                         SizedBox(width: 20.0),
-                        Text('emna3@outlook.com',
+                        Text(widget.user.email,
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 20.0,
@@ -334,6 +355,17 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Color(0xff476cfb),
                         onPressed: () {
                           uploadPic(context);
+
+                         /* FirebaseDatabase.instance
+                              .reference()
+                              .child('users')
+                              .child(widget.user.userID)
+                              .set({
+                            'userName': widget.user.userName,
+                            'birthDay': widget.user.birthDay,
+                            'location': widget.user.location,
+                            'Email':   widget.user.email,
+                          });*/
                         },
                         elevation: 4.0,
                         splashColor: Colors.blueGrey,

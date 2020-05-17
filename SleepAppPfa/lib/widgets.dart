@@ -7,6 +7,9 @@ import 'package:tutorials_test/services/authentication.dart';
 // import 'screens/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'models/UitlisateurClass.dart';
+
+
 Widget appLogo(String title, String img) {
   return Container(
     child: Padding(
@@ -172,6 +175,7 @@ Widget submitButton(BuildContext context, String title) {
 
 Widget customNavBar(BuildContext context, int activeIndex,
     {BaseAuth auth, VoidCallback logoutCallback, String userId}) {
+      Utilisateur user = new Utilisateur(userId);
   return CupertinoTabBar(
     backgroundColor: Theme.of(context).primaryColor,
     activeColor: Theme.of(context).accentColor,
@@ -226,8 +230,9 @@ Widget customNavBar(BuildContext context, int activeIndex,
          //print('this is ProfilePage');
          //print('this is userId  '+userId);
            // Navigator.of(context).popUntil((route) => route.isFirst);
+            
             Navigator.push(context,MaterialPageRoute(builder: (context) =>ProfilePage(
-                userId: userId, auth: auth, logoutCallback: logoutCallback 
+                userId: userId, auth: auth, logoutCallback: logoutCallback, user: user,
                 )
                 ));
            /*new ProfilePage(

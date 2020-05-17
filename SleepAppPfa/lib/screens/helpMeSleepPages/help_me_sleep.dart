@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:tutorials_test/screens/exercices.dart';
 
-import 'screens/diet_recommendation.dart';
-import 'screens/meditation.dart';
+import 'package:tutorials_test/widgets.dart';
+
+import 'diet_recommendation.dart';
+import 'exercices.dart';
+import 'meditation.dart';
 import 'package:flutter/widgets.dart';
 
-import 'widgets.dart';
+
 
 class HelpMeSleepPage extends StatefulWidget {
   @override

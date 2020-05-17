@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'screens/LearnMoreActualPage.dart';
-import 'widgets.dart';
-import 'models/learnMoreArticlesClasses.dart';
+import 'package:tutorials_test/models/learnMoreArticlesClasses.dart';
+import 'package:tutorials_test/screens/learnMorePages/LearnMoreActualPage.dart';
+import 'package:tutorials_test/widgets.dart';
 
-class LearnMorePage extends StatefulWidget {
+
+class LearnMorePageFront extends StatefulWidget {
   @override
-  _LearnMorePageState createState() => _LearnMorePageState();
+  _LearnMorePageFrontState createState() => _LearnMorePageFrontState();
 }
 
-class _LearnMorePageState extends State<LearnMorePage> {
+class _LearnMorePageFrontState extends State<LearnMorePageFront> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

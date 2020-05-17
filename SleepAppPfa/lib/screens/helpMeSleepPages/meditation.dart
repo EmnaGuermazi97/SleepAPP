@@ -2,8 +2,8 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 import 'package:flutter/material.dart';
+import 'package:tutorials_test/widgets.dart';
 
-import '../widgets.dart';
 
 class MeditationPage extends StatefulWidget {
   @override

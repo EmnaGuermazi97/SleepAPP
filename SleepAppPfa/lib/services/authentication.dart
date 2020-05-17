@@ -32,9 +32,10 @@ class Auth implements BaseAuth {
     FirebaseUser user = result.user;
     await FirebaseDatabase.instance.reference().child('users').child(user.uid).set({
       'UserID': user.uid,
-      'userName': "",
-      'birthDay': "",
-      'location': "",
+      'userName': "Anonymous",
+      'birthDay': "DD/MM/YYYY",
+      'location': "Unkown", 
+      'Email' : email,
     }).catchError((onError)=>print(onError));
 
     return user.uid; //de type String

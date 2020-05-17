@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tutorials_test/widgets.dart';
 import 'ISIResulatPage.dart';
-import 'widgets.dart';
+
 import 'package:carousel_slider/carousel_slider.dart';
 
 class ISIPage extends StatefulWidget {

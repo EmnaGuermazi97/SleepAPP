@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:tutorials_test/screens/ISIPages/ISIPage.dart';
+import 'package:tutorials_test/screens/helpMeSleepPages/help_me_sleep.dart';
+
+import 'package:tutorials_test/screens/learnMorePages/LearnMorePageFront.dart';
+
 import 'Authentication/ActionDetection.dart';
-import 'ISIPage.dart';
-import 'LearnMorePageFront.dart';
-import 'help_me_sleep.dart';
 
 
 
-import 'screens/LearnMoreActualPage.dart';
+
+
+
 
 import 'loginSignUpPageEm.dart';
-import 'mainFacebook.dart';
+
 import 'services/authentication.dart';
-import 'widgets.dart';
-import 'models/learnMoreArticlesClasses.dart';
+
 import 'homePage.dart';
 
 
@@ -20,7 +23,7 @@ import 'homePage.dart';
 import 'journalPage.dart';
 
 import 'profilePage.dart';
-import 'signupPage.dart';
+
 
 
 
@@ -43,8 +46,7 @@ class MyApp extends StatelessWidget {
           '/homePage': (context) => HomePage(),
           '/journalPage': (context) => JournalPage(),
           '/profilePage': (context) => ProfilePage(),
-          '/signupPage' : (context) => SignUpPage(),
-          '/learnMorePage' : (context) => LearnMorePage(),
+          '/learnMorePage' : (context) => LearnMorePageFront(),
           '/loginPageE' : (context) => LoginPageE(),
           '/ISIPage': (context) => ISIPage(),
           '/help_me_sleep': (context) => HelpMeSleepPage(),
