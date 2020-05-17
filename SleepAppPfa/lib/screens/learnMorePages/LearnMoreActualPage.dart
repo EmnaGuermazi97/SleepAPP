@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/learnMoreArticlesClasses.dart';
-import 'package:tutorials_test/widgets.dart';
-
-
-
-
-
+import 'package:tutorials_test/widgets/articleStructure.dart';
 
 class ArticleLearnScreen extends StatefulWidget {
   final ArticleLearnMore article;
@@ -87,18 +82,6 @@ class _ArticleLearnScreenState extends State<ArticleLearnScreen> {
                         .paragraphes[widget.article.miniTitles.indexOf(f)]))
                 .toList(),
           ),
-          // Expanded(
-          //                  child: ListView.builder(
-          //                    shrinkWrap: true,
-          //   scrollDirection: Axis.vertical,
-          //   itemCount: widget.article.miniTitles.length,
-          //   itemBuilder: (BuildContext context, int index) {
-          //     //articleStructure is a widget made  by me,it takes as parameter a title and  a paragraph
-          //     return articleStructure(
-          //         title: widget.article.miniTitles[index],
-          //         paragraphe: widget.article.paragraphes[index]);
-          //   }),
-          // ),
         ],
       ),
     ));

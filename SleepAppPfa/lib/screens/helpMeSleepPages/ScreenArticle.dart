@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/articlesClasses.dart';
-import 'package:tutorials_test/widgets.dart';
-
-
-
-
-
+import 'package:tutorials_test/widgets/articleStructure.dart';
 
 class ScreenArticle extends StatefulWidget {
   final Article article;

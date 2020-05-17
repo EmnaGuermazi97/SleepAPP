@@ -1,15 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/Authentication/EmailVerif.dart';
-
 import 'package:tutorials_test/loginSignUpPageEm.dart';
 import 'package:tutorials_test/services/authentication.dart';
-
-
-
-
-
-
-
 
 enum AuthStatus {
   NOT_DETERMINED,

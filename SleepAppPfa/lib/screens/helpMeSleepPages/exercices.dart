@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/articlesClasses.dart';
-import 'package:tutorials_test/widgets.dart';
+import 'package:tutorials_test/widgets/customNavBar.dart';
 
 import 'ScreenArticle.dart';
 

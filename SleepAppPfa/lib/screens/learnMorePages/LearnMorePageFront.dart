@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/learnMoreArticlesClasses.dart';
 import 'package:tutorials_test/screens/learnMorePages/LearnMoreActualPage.dart';
-import 'package:tutorials_test/widgets.dart';
-
+import 'package:tutorials_test/widgets/customNavBar.dart';
 
 class LearnMorePageFront extends StatefulWidget {
   @override
@@ -127,7 +126,6 @@ class _LearnMorePageFrontState extends State<LearnMorePageFront> {
                   ),
                   height: 350,
                   decoration: BoxDecoration(
-                    // color: Colors.white,
                     borderRadius: BorderRadius.circular(12),
                   ),
                 )

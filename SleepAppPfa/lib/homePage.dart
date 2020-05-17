@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tutorials_test/journalPage.dart';
-import 'package:tutorials_test/profilePage.dart';
+import 'package:tutorials_test/widgets/customNavBar.dart';
+import 'package:tutorials_test/widgets/navigationButton.dart';
 import 'services/authentication.dart';
-import 'widgets.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.auth, this.userId, this.logoutCallback})
@@ -49,12 +48,6 @@ class _HomePageState extends State<HomePage> {
                 onPressed: signOut)
           ],
         ),
-        /*   appBar: new AppBar(
-          title: new Text('Home'),
-          centerTitle: true,
-       
-        ),*/
-
         backgroundColor: Color(0xffeaf6ff),
         body: Center(
           child: Container(

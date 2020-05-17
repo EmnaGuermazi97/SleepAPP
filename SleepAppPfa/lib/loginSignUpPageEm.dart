@@ -1,18 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:tutorials_test/widgets/customButton.dart';
+import 'package:tutorials_test/widgets/divider.dart';
 import 'services/authentication.dart';
-import 'widgets.dart';
-import 'models/learnMoreArticlesClasses.dart';
-import 'homePage.dart';
-
-import 'journalPage.dart';
-
-import 'profilePage.dart';
-
-
-
-
 
 class LoginPageE extends StatefulWidget {
     LoginPageE ({this.auth, this.loginCallback});
@@ -123,7 +112,6 @@ class _LoginPageEState extends State<LoginPageE> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       body: Container(
         

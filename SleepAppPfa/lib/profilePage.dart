@@ -1,14 +1,12 @@
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/UitlisateurClass.dart';
 import 'package:tutorials_test/services/authentication.dart';
-import 'widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 import 'package:path/path.dart';
-import 'package:flutter/services.dart';
+import 'package:tutorials_test/widgets/customNavBar.dart';
 //import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProfilePage extends StatefulWidget {
