@@ -3,8 +3,8 @@ import 'package:audioplayers/audioplayers.dart';
 
 import 'package:flutter/material.dart';
 
-class Tools extends StatefulWidget {
-  Tools(
+class AudioTools extends StatefulWidget {
+  AudioTools(
       {Key key,
       this.audioPlayer,
       this.isPlaying,
@@ -18,10 +18,10 @@ class Tools extends StatefulWidget {
    String currentTime;
    String completeTime;
   @override
-  _ToolsState createState() => _ToolsState();
+  _AudioToolsState createState() => _AudioToolsState();
 }
 
-class _ToolsState extends State<Tools> {
+class _AudioToolsState extends State<AudioTools> {
   get audioPlayer => widget.audioPlayer;
   get completeTime => widget.completeTime;
   get currentTime => widget.currentTime;

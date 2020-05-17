@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tutorials_test/models/articlesClasses.dart';
+import 'package:tutorials_test/models/ArticleScreenClass.dart';
 import 'package:tutorials_test/widgets/customNavBar.dart';
 
-import 'ScreenArticle.dart';
+import 'List_Help_Me.dart';
 
 class ExercicesPage extends StatefulWidget {
   @override
@@ -20,7 +20,7 @@ class _ExercicesPage extends State<ExercicesPage> {
               centerTitle: true,
             ),
             bottomNavigationBar: customNavBar(context, 0),
-            body: ScreenArticle(article: articlesHelpMe[1]),
+            body: ArticleScreen(article: articlesHelpMe[1]),
             
           
             )

@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:tutorials_test/models/learnMoreArticlesClasses.dart';
+import 'package:tutorials_test/models/ArticleClass.dart';
 import 'package:tutorials_test/widgets/articleStructure.dart';
 
-class ArticleLearnScreen extends StatefulWidget {
-  final ArticleLearnMore article;
-  final def =
-      'Sleep is: \n\nA condition of body and mind which typically recurs for several hours every night, in which the nervous system is inactive, the eyes closed, the postural muscles relaxed, and consciousness practically suspended.\n\nSleep is the mother of all health issues.  \n Most people do not understand what the lack of sleep or poor sleep efficiency is doing to them. \n Impaired sleep prevents your body from doing its nightly system recharge which doesn’t just cause fatigue but has been shown to: \n\n - Slow down your metabolism \n -impact weight and fat gain \n -weaken your immune system \n - impair your memory and ability to think clearly, reason and problem solving \n - hormone imbalances \n - accelerates aging process \n - worsen current health issues like heart ';
-  ArticleLearnScreen({this.article});
+class ArticleScreen extends StatefulWidget {
+  final Article article;
+  ArticleScreen({this.article});
 
   @override
-  _ArticleLearnScreenState createState() => _ArticleLearnScreenState();
+   createState() => _ArticleScreen();
 }
 
-class _ArticleLearnScreenState extends State<ArticleLearnScreen> {
+class _ArticleScreen extends State<ArticleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,10 +42,9 @@ class _ArticleLearnScreenState extends State<ArticleLearnScreen> {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.only(
-                              top: 60.0, left: 20.0, bottom: 0.0),
+                              top: 30.0,  bottom: 0.0),
                           child: Container(
                             height: 120.0,
-                            color: Colors.white,
                             child: Text(
                               widget.article.titleA,
                               style: TextStyle(
@@ -55,16 +52,19 @@ class _ArticleLearnScreenState extends State<ArticleLearnScreen> {
                                 fontWeight: FontWeight.w600,
                                 letterSpacing: 1.2,
                               ),
+                              textAlign: TextAlign.center,
                             ),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              top: 40.0, right: 2.0, left: 2.0),
+                               right: 2.0, left: 2.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20.0),
                             child: Image(
                               image: AssetImage(widget.article.imageUrlA),
+                              height: 300,
+                              width: 500,
                             ),
                           ),
                         ),
@@ -82,6 +82,7 @@ class _ArticleLearnScreenState extends State<ArticleLearnScreen> {
                         .paragraphes[widget.article.miniTitles.indexOf(f)]))
                 .toList(),
           ),
+          
         ],
       ),
     ));

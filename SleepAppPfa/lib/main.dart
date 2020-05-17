@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tutorials_test/screens/ISIPages/ISIPage.dart';
 import 'package:tutorials_test/screens/helpMeSleepPages/help_me_sleep.dart';
 
-import 'package:tutorials_test/screens/learnMorePages/LearnMorePageFront.dart';
+import 'package:tutorials_test/screens/learnMorePages/LearnMorePage.dart';
 
 import 'Authentication/ActionDetection.dart';
 
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           '/homePage': (context) => HomePage(),
           '/journalPage': (context) => JournalPage(),
           '/profilePage': (context) => ProfilePage(),
-          '/learnMorePage' : (context) => LearnMorePageFront(),
+          '/learnMorePage' : (context) => LearnMorePage(),
           '/loginPageE' : (context) => LoginPageE(),
           '/ISIPage': (context) => ISIPage(),
           '/help_me_sleep': (context) => HelpMeSleepPage(),

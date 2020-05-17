@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tutorials_test/models/articlesClasses.dart';
-import 'package:tutorials_test/screens/helpMeSleepPages/ScreenArticle.dart';
+import 'package:tutorials_test/models/ArticleScreenClass.dart';
 import 'package:tutorials_test/widgets/customNavBar.dart';
+
+import 'List_Help_Me.dart';
 
 
 
@@ -20,7 +21,7 @@ class _DietRecommendationPage extends State<DietRecommendationPage> {
               centerTitle: true,
             ),
             bottomNavigationBar: customNavBar(context, 0),
-            body: ScreenArticle(article: articlesHelpMe[0],),
+            body: ArticleScreen(article: articlesHelpMe[0],),
           
             )
             );

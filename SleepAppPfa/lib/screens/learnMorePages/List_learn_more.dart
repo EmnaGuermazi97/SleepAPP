@@ -1,22 +1,9 @@
-import 'package:flutter/material.dart';
 
-class ArticleLearnMore {
-  String imageUrl;
-  List<String> miniTitles;
-  List<String> paragraphes;
 
-  String imageUrlA;
-  String titleA;
-  ArticleLearnMore(
-      {@required this.imageUrl,
-      this.miniTitles,
-      this.paragraphes,
-      @required this.imageUrlA,
-      @required this.titleA}) {}
-}
+import 'package:tutorials_test/models/ArticleClass.dart';
 
-List<ArticleLearnMore> articles = [
-  ArticleLearnMore(
+List<Article> articles = [
+  Article(
       imageUrl: "assets/images/definition.jpg",
       miniTitles: [' ', 'Dangers caused by lack of sleep'],
       paragraphes: [
@@ -24,8 +11,8 @@ List<ArticleLearnMore> articles = [
         'Sleep is the mother of all health issues.  \n Most people do not understand what the lack of sleep or poor sleep efficiency is doing to them. \n Impaired sleep prevents your body from doing its nightly system recharge which doesn’t just cause fatigue but has been shown to: \n\n- Slow down your metabolism \n- impact weight and fat gain \n- weaken your immune system \n- impair your memory and ability to think clearly, reason and problem solve \n- hormone imbalances \n- accelerates aging process \n- worsen current health issues like heart disease, cancer, anxiety \n\n'
       ],
       imageUrlA: "assets/images/defi.jpg",
-      titleA: "Sleep Definition"),
-  ArticleLearnMore(
+      titleA: "\nSleep Definition"),
+  Article(
       imageUrl: "assets/images/Habits.jpg",
       miniTitles: [
         '1.Turn off the TV',
@@ -47,7 +34,7 @@ List<ArticleLearnMore> articles = [
       ],
       imageUrlA: "assets/images/HabitsA.png",
       titleA: "Better habits for better Sleep"),
-  ArticleLearnMore(
+  Article(
       imageUrl: "assets/images/obstacles.jpg",
       miniTitles: [
         'Intro: ',
@@ -67,7 +54,7 @@ List<ArticleLearnMore> articles = [
       ],
       imageUrlA: "assets/images/obstaclesA.png",
       titleA: "Habits that can be the cause of your lack of sleep"),
-  ArticleLearnMore(
+  Article(
       imageUrl: "assets/images/sleepCycle.jpg",
       miniTitles: [' ', 'Stage 1 ', 'Stage 2 ', 'Stage 3 ', 'REM sleep '],
       paragraphes: [

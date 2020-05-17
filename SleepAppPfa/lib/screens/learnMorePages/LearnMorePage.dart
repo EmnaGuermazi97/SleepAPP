@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:tutorials_test/models/learnMoreArticlesClasses.dart';
-import 'package:tutorials_test/screens/learnMorePages/LearnMoreActualPage.dart';
+import 'package:tutorials_test/models/ArticleScreenClass.dart';
+import 'package:tutorials_test/models/ArticleClass.dart';
 import 'package:tutorials_test/widgets/customNavBar.dart';
+import 'List_learn_more.dart';
 
-class LearnMorePageFront extends StatefulWidget {
+class LearnMorePage extends StatefulWidget {
   @override
-  _LearnMorePageFrontState createState() => _LearnMorePageFrontState();
+  _LearnMorePageState createState() => _LearnMorePageState();
 }
 
-class _LearnMorePageFrontState extends State<LearnMorePageFront> {
+class _LearnMorePageState extends State<LearnMorePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -74,13 +75,13 @@ class _LearnMorePageFrontState extends State<LearnMorePageFront> {
                     scrollDirection: Axis.horizontal,
                     itemCount: articles.length,
                     itemBuilder: (BuildContext context, int index) {
-                      ArticleLearnMore articlee = articles[index];
+                      Article article = articles[index];
                       return GestureDetector(
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (_) =>
-                                ArticleLearnScreen(article: articlee),
+                                ArticleScreen(article: article),
                           ),
                         ),
                         child: Container(
@@ -112,7 +113,7 @@ class _LearnMorePageFrontState extends State<LearnMorePageFront> {
                                         child: Image(
                                           height: 280.0,
                                           width: 220.0,
-                                          image: AssetImage(articlee.imageUrl),
+                                          image: AssetImage(article.imageUrl),
                                           fit: BoxFit.cover,
                                         ),
                                       )
