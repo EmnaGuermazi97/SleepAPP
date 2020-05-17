@@ -1,31 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/screens/ISIPages/ISIPage.dart';
 import 'package:tutorials_test/screens/helpMeSleepPages/help_me_sleep.dart';
-
 import 'package:tutorials_test/screens/learnMorePages/LearnMorePage.dart';
-
 import 'Authentication/ActionDetection.dart';
-
-
-
-
-
-
-
 import 'loginSignUpPageEm.dart';
-
 import 'services/authentication.dart';
-
 import 'homePage.dart';
-
-
-
 import 'journalPage.dart';
-
 import 'profilePage.dart';
-
-
-
 
 void main() => runApp(MyApp());
 
@@ -53,4 +35,3 @@ class MyApp extends StatelessWidget {
         });
   }
 }
-

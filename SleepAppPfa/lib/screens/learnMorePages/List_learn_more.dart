@@ -1,5 +1,3 @@
-
-
 import 'package:tutorials_test/models/ArticleClass.dart';
 
 List<Article> articles = [

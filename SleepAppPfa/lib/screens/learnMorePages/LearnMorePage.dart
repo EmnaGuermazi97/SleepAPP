@@ -81,7 +81,7 @@ class _LearnMorePageState extends State<LearnMorePage> {
                           context,
                           MaterialPageRoute(
                             builder: (_) =>
-                                ArticleScreen(article: article),
+                                ArticleScreen(article: article, articleTitle: 'Learn More',),
                           ),
                         ),
                         child: Container(

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/ArticleClass.dart';
 import 'package:tutorials_test/widgets/articleStructure.dart';
+import '../widgets/customNavBar.dart';
 
 class ArticleScreen extends StatefulWidget {
   final Article article;
-  ArticleScreen({this.article});
+  final String articleTitle;
+  ArticleScreen({this.article, this.articleTitle});
 
   @override
    createState() => _ArticleScreen();
@@ -14,6 +16,12 @@ class _ArticleScreen extends State<ArticleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+              leading: Container(),
+              title: Text(widget.articleTitle),
+              centerTitle: true,
+            ),
+            bottomNavigationBar: customNavBar(context, 0),
         body: SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,
