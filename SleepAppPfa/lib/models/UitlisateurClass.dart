@@ -7,6 +7,7 @@ class Utilisateur {
   String birthDay;
   String location;
   String email;
+  String isiResult;
   Utilisateur(String userid) {
     this.userID = userid;
     var db = FirebaseDatabase.instance.reference().child("users");
@@ -18,6 +19,7 @@ class Utilisateur {
           this.birthDay = values['birthDay'];
           this.location = values['location'];
           this.email = values['Email'];
+          this.isiResult = values['isiResult'];
           print(this.email);
         }
       });

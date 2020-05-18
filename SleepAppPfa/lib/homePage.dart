@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tutorials_test/models/UitlisateurClass.dart';
 import 'package:tutorials_test/widgets/customNavBar.dart';
 import 'package:tutorials_test/widgets/navigationButton.dart';
+import 'package:tutorials_test/widgets/navigationButtonISI.dart';
 import 'services/authentication.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,6 +38,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Utilisateur userHome = new Utilisateur(widget.userId);
     return SafeArea(
       child: Scaffold(
         appBar: new AppBar(
@@ -64,8 +67,8 @@ class _HomePageState extends State<HomePage> {
                   navigationButton(context, 'Help Me Sleep',
                       img: 'assets/images/help.png',
                       routeName: '/help_me_sleep'),
-                  navigationButton(context, 'Insomnia Sleep Index',
-                      img: 'assets/images/isi.png', routeName: '/ISIPage'),
+                  navigationButtonISI(context, 'Insomnia Sleep Index',
+                      img: 'assets/images/isi.png', routeName: '/ISIPage',user: userHome),
                 ]),
           ),
         ),

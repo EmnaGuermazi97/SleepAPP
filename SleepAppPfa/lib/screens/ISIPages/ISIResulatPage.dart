@@ -1,10 +1,21 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:tutorials_test/models/UitlisateurClass.dart';
 
 class ResultPage extends StatefulWidget {
   int isiResult;
-  ResultPage({Key key, this.isiResult}) : super(key: key);
+  Utilisateur user;
+  ResultPage({Key key, this.isiResult, this.user}) : super(key: key) {
+    print('I am at ISI Resultat' + user.userID);
+    
+     user.isiResult=isiResult.toString(); 
+
+  }
+ 
+  
+    
+    
   @override
   _ResultPageState createState() => _ResultPageState(isiResult);
 }
@@ -15,6 +26,21 @@ class _ResultPageState extends State<ResultPage> {
 
   @override
   Widget build(BuildContext context) {
+  
+  
+
+    
+    print("this is saved user isiResult");
+    print(widget.user.isiResult);
+
+    FirebaseDatabase.instance
+        .reference()
+        .child('users')
+        .child(widget.user.userID)
+        .update({
+      'isiResult': widget.user.isiResult,
+    });
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(

@@ -13,7 +13,7 @@ import 'package:flutter/services.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({Key key, this.auth, this.userId, this.logoutCallback, this.user})
-      : super(key: key);//{user.loadUserData(userId);}
+      : super(key: key); //{user.loadUserData(userId);}
   final Utilisateur user;
   final BaseAuth auth;
   final VoidCallback logoutCallback;
@@ -50,18 +50,16 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-
     widget.user.loadUserData(widget.userId);
     TextEditingController controllerBirthday = TextEditingController();
     TextEditingController controllerUserName = TextEditingController();
     TextEditingController controllerLocation = TextEditingController();
-    
+
     controllerBirthday.text = widget.user.birthDay;
     controllerUserName.text = widget.user.userName;
     controllerLocation.text = widget.user.location;
     print('this is email in profil Page' + widget.user.email);
 
-  
     Future getImage() async {
       var image = await ImagePicker.pickImage(source: ImageSource.gallery);
 
@@ -173,8 +171,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                 width: 150,
                                 child: new TextField(
                                     onChanged: (text) {
-                                      widget.user.userName=text;
-                                      print('the new temp value is  '+widget.user.userName);
+                                      widget.user.userName = text;
+                                      print('the new temp value is  ' +
+                                          widget.user.userName);
                                     },
                                     controller: controllerUserName,
                                     style: TextStyle(
@@ -222,11 +221,11 @@ class _ProfilePageState extends State<ProfilePage> {
                                         // hintText: "Add and Submit"
                                         ),
                                     controller: controllerBirthday,
-
-                                     onChanged: (text) {
-                                      birthdayValue = text; 
-                                      widget.user.birthDay=text;
-                                      print('the new temp value is  '+widget.user.birthDay);
+                                    onChanged: (text) {
+                                      birthdayValue = text;
+                                      widget.user.birthDay = text;
+                                      print('the new temp value is  ' +
+                                          widget.user.birthDay);
                                     },
                                     style: TextStyle(
                                         color: Colors.black,
@@ -286,10 +285,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                 width: 150,
                                 child: new TextField(
                                     controller: controllerLocation,
-                                     onChanged: (text) {
-                                      
-                                      widget.user.location=text;
-                                      print('the new temp value is  '+widget.user.location);
+                                    onChanged: (text) {
+                                      widget.user.location = text;
+                                      print('the new temp value is  ' +
+                                          widget.user.location);
                                     },
                                     style: TextStyle(
                                         color: Colors.black,
@@ -320,11 +319,35 @@ class _ProfilePageState extends State<ProfilePage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
-                              Text('Email',
+                              Text('ISI Result',
                                   style: TextStyle(
                                       color: Colors.blueGrey, fontSize: 18.0)),
                               SizedBox(width: 8.0),
                             ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.only(top: 20.0),
+                                child: Text(widget.user.isiResult,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold)),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top:30.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Text('Email',
+                                    style: TextStyle(
+                                        color: Colors.blueGrey, fontSize: 18.0)),
+                                SizedBox(width: 8.0),
+                              ],
+                            ),
                           ),
                           Row(
                             children: <Widget>[
@@ -337,7 +360,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         fontWeight: FontWeight.bold)),
                               ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -364,7 +387,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Color(0xff476cfb),
                         onPressed: () {
                           uploadPic(context);
-                       
+
                           FirebaseDatabase.instance
                               .reference()
                               .child('users')
@@ -373,7 +396,8 @@ class _ProfilePageState extends State<ProfilePage> {
                             'userName': widget.user.userName,
                             'birthDay': widget.user.birthDay,
                             'location': widget.user.location,
-                            'Email':   widget.user.email,
+                            'Email': widget.user.email,
+                            
                           });
                         },
                         elevation: 4.0,

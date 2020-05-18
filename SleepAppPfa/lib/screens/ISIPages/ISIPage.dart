@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tutorials_test/models/UitlisateurClass.dart';
 import 'package:tutorials_test/widgets/carouselItem.dart';
 import 'ISIResulatPage.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class ISIPage extends StatefulWidget {
-  
+  Utilisateur user;
+  ISIPage({this.user});
   @override
   _ISIPageState createState() => _ISIPageState();
   
@@ -325,7 +327,7 @@ class _ISIPageState extends State<ISIPage> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => ResultPage(
-                                  isiResult: isiResult,
+                                  isiResult: isiResult,user: widget.user,
                                 )),
                       );
                     } else {
