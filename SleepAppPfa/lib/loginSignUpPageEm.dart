@@ -250,7 +250,7 @@ Widget showForm() {
             showPrimaryButton(),
             showSecondaryButton(),
             showErrorMessage(),
-                  divider(),
+          /*       divider(),
               customButton(context,'Continue with Google',
                   img: 'assets/images/google.png'),
               SizedBox(
@@ -260,7 +260,7 @@ Widget showForm() {
                   img: 'assets/images/facebook.png'),
               SizedBox(
                 height: 40.0,
-              ),
+              ),*/
           
             
           ],

@@ -23,7 +23,7 @@ class _HelpMeSleepState extends State<HelpMeSleepPage> {
         centerTitle: true,
       ),
       backgroundColor: Color(0xffeaf6ff),
-      bottomNavigationBar: customNavBar(context, 0),
+    //  bottomNavigationBar: customNavBar(context, 0),
       body: Stack(
         children: <Widget>[
           Container(

@@ -1,5 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:tutorials_test/homePage.dart';
+import 'package:tutorials_test/loginSignUpPageEm.dart';
 import 'package:tutorials_test/models/UitlisateurClass.dart';
 import 'package:tutorials_test/services/authentication.dart';
 import 'package:tutorials_test/widgets/customNavBar.dart';
@@ -87,11 +89,21 @@ class _ProfilePageState extends State<ProfilePage> {
         appBar: new AppBar(
           title: new Text('ProfilePage'),
           centerTitle: true,
-          actions: <Widget>[
-            new FlatButton(
+          actions: <Widget>[ RaisedButton(onPressed:
+
+                {// hey can u try  the next line instead of navigator? it should work but i get an error ,even navigator gives me an error
+                //they both give me the same error
+                //FirebaseAuthProvider.instance.signOut();
+                   Navigator.push(context,MaterialPageRoute(builder: (context) =>LoginPageE(
+                
+               )
+               )
+               )}
+               )
+           /* new FlatButton(
                 child: new Text('Logout',
                     style: new TextStyle(fontSize: 17.0, color: Colors.white)),
-                onPressed: signOut)
+                onPressed: signOut)*/
           ],
         ),
         /* appBar: AppBar(
@@ -397,7 +409,6 @@ class _ProfilePageState extends State<ProfilePage> {
                             'birthDay': widget.user.birthDay,
                             'location': widget.user.location,
                             'Email': widget.user.email,
-                            
                           });
                         },
                         elevation: 4.0,
