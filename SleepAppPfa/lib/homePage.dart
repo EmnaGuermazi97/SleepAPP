@@ -1,17 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/UitlisateurClass.dart';
+import 'package:tutorials_test/widgets/NavigationButtonLearn.dart';
 import 'package:tutorials_test/widgets/customNavBar.dart';
 import 'package:tutorials_test/widgets/navigationButton.dart';
 import 'package:tutorials_test/widgets/navigationButtonISI.dart';
 import 'services/authentication.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.auth, this.userId, this.logoutCallback})
+  HomePage({Key key, this.auth, this.userId, this.logoutCallback,this.user})
       : super(key: key){print("this is actual HomePage/n");
      print("this is user Id/n"+userId);}
 
-
+  Utilisateur user;
   final BaseAuth auth;
   final VoidCallback logoutCallback;
   final String userId;
@@ -61,8 +62,8 @@ class _HomePageState extends State<HomePage> {
                 children: <Widget>[
                   (navigationButton(context, 'Connect Watch',
                       img: 'assets/images/bluetooth.png')),
-                  navigationButton(context, 'Learn More',
-                      img: 'assets/images/learn.png',
+                  navigationButtonLearn(context, 'Learn More',
+                      img: 'assets/images/learn.png',user: userHome,
                       routeName: '/learnMorePage'),
                   navigationButton(context, 'Help Me Sleep',
                       img: 'assets/images/help.png',

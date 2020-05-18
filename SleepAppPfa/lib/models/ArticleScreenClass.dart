@@ -21,7 +21,7 @@ class _ArticleScreen extends State<ArticleScreen> {
               title: Text(widget.articleTitle),
               centerTitle: true,
             ),
-            bottomNavigationBar: customNavBar(context, 0),
+           // bottomNavigationBar: customNavBar(context, 0),
         body: SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,
