@@ -13,7 +13,7 @@ import 'package:flutter/services.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({Key key, this.auth, this.userId, this.logoutCallback, this.user})
-      : super(key: key){user.loadUserData(userId);}
+      : super(key: key);//{user.loadUserData(userId);}
   final Utilisateur user;
   final BaseAuth auth;
   final VoidCallback logoutCallback;
@@ -50,23 +50,18 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    //print(widget.userId);
-    //widget.user = new Utilisateur(userID:widget.userId);
-    //widget.user = widget.user.loadUserData(widget.userId);
+
     widget.user.loadUserData(widget.userId);
     TextEditingController controllerBirthday = TextEditingController();
     TextEditingController controllerUserName = TextEditingController();
     TextEditingController controllerLocation = TextEditingController();
-    //TextEditingController controllerEmail = TextEditingController();
-    print('updatedBirthday');
-    print(widget.user.birthDay);
+    
     controllerBirthday.text = widget.user.birthDay;
     controllerUserName.text = widget.user.userName;
     controllerLocation.text = widget.user.location;
     print('this is email in profil Page' + widget.user.email);
 
-    //print('this is inside build');
-    //print(widget.user.birthDay);
+  
     Future getImage() async {
       var image = await ImagePicker.pickImage(source: ImageSource.gallery);
 
@@ -369,12 +364,12 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Color(0xff476cfb),
                         onPressed: () {
                           uploadPic(context);
-
-                           FirebaseDatabase.instance
+                       
+                          FirebaseDatabase.instance
                               .reference()
                               .child('users')
                               .child(widget.user.userID)
-                              .set({
+                              .update({
                             'userName': widget.user.userName,
                             'birthDay': widget.user.birthDay,
                             'location': widget.user.location,

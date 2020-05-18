@@ -9,7 +9,7 @@ class Utilisateur {
   String email;
   Utilisateur(String userid) {
     this.userID = userid;
-    /*var db = FirebaseDatabase.instance.reference().child("users");
+    var db = FirebaseDatabase.instance.reference().child("users");
     db.once().then((DataSnapshot snapshot) {
       Map<dynamic, dynamic> values = snapshot.value;
       values.forEach((key, values) {
@@ -22,33 +22,9 @@ class Utilisateur {
         }
       });
     }
-    );*/
+    );
   }
- 
-/*db = FirebaseDatabase.instance.reference().child("zoom_users");
-db.once().then((DataSnapshot snapshot){
-  Map<dynamic, dynamic> values = snapshot.value;
-     values.forEach((key,values) {
-      print(values["name"]);
-    });
- });*/
-  /*
-  loadUserData(userid) {
-    Utilisateur user = new Utilisateur(userid);
-    var db = FirebaseDatabase.instance.reference().child("users");
-    db.once().then((DataSnapshot snapshot) {
-      Map<dynamic, dynamic> values = snapshot.value;
-      values.forEach((key, values) {
-        user.userID = values['UserID'];
-        user.userName = values['userName'];
-        user.birthDay = values['birthDay'];
-        user.location = values['location'];
-        print(user.birthDay);
-      });
-    });
-    return user;
-  }
-*/
+
   loadUserData(String userid)async {
     this.userID=userid;
     var db = FirebaseDatabase.instance.reference().child("users");
