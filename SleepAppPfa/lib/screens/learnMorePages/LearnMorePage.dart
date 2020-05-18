@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/ArticleScreenClass.dart';
 import 'package:tutorials_test/models/ArticleClass.dart';
 import 'package:tutorials_test/models/UitlisateurClass.dart';
-import 'package:tutorials_test/widgets/CustomNavBarUser.dart';
 import 'package:tutorials_test/widgets/customNavBar.dart';
 import 'List_learn_more.dart';
 
 class LearnMorePage extends StatefulWidget {
   Utilisateur user ;
-  LearnMorePage(this.user);
+  LearnMorePage({this.user});
   @override
   _LearnMorePageState createState() => _LearnMorePageState();
 }
@@ -138,7 +137,7 @@ class _LearnMorePageState extends State<LearnMorePage> {
             ),
           ),
         ),
-        //bottomNavigationBar: customNavBarUser(context, 0,user:widget.user),
+        //bottomNavigationBar: customNavBar(context, 0,),
       ),
     );
   }

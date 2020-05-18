@@ -27,9 +27,9 @@ class _JournalPageState extends State<JournalPage> {
           appBar: new AppBar(
           title: new Text('JournalPage'),
           centerTitle: true,
-          actions: <Widget>[
+          /*actions: <Widget>[
 
-          ],
+          ],*/
         ),
         backgroundColor: Color(0xffeaf6ff),
         body: SingleChildScrollView(),

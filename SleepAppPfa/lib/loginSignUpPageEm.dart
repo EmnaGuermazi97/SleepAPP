@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tutorials_test/Animation/fadeAnimation.dart';
 import 'package:tutorials_test/widgets/customButton.dart';
 import 'package:tutorials_test/widgets/divider.dart';
 import 'services/authentication.dart';
@@ -137,7 +138,58 @@ class _LoginPageEState extends State<LoginPageE> {
   }
   
 Widget showLogo() {
-    return new Hero(
+    return   Container(
+	              height: 400,
+	              decoration: BoxDecoration(
+	                image: DecorationImage(
+	                  image: AssetImage('assets/images/background.png'),
+	                  fit: BoxFit.fill
+	                )
+	              ),
+	              child: Stack(
+	                children: <Widget>[
+	                  Positioned(
+	                    left: 30,
+	                    width: 80,
+	                    height: 200,
+	                    child: FadeAnimation(1, Container(
+	                      decoration: BoxDecoration(
+	                        image: DecorationImage(
+	                          image: AssetImage('assets/images/light-1.png')
+	                        )
+	                      ),
+	                    )),
+	                  ),
+	                  Positioned(
+	                    left: 140,
+	                    width: 80,
+	                    height: 150,
+	                    child: FadeAnimation(1.3, Container(
+	                      decoration: BoxDecoration(
+	                        image: DecorationImage(
+	                          image: AssetImage('assets/images/light-2.png')
+	                        )
+	                      ),
+	                    )),
+	                  ),
+	                  Positioned(
+	                    right: 40,
+	                    top: 40,
+	                    width: 80,
+	                    height: 150,
+	                    child: FadeAnimation(1.5, Container(
+	                      decoration: BoxDecoration(
+	                        image: DecorationImage(
+	                          image: AssetImage('assets/images/clock.png')
+	                        )
+	                      ),
+	                    )
+                      ),
+	                  )
+                  ],
+                  ) 
+                  );
+    /*new Hero(
       tag: 'hero',
       child: Padding(
         padding: EdgeInsets.fromLTRB(0.0, 70.0, 0.0, 0.0),
@@ -152,12 +204,12 @@ Widget showLogo() {
          
         ),
       ),
-    );
+    );*/
   }
   Widget showEmailInput() {
     
         return Padding(
-          padding: const EdgeInsets.fromLTRB(0.0, 100.0, 0.0, 0.0),
+          padding: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 0.0),
           child: new TextFormField(
             maxLines: 1,
             keyboardType: TextInputType.emailAddress,
@@ -203,7 +255,11 @@ Widget showLogo() {
                 elevation: 5.0,
                 shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0)),
-                color: Colors.blue,
+                     
+	                         color:Color.fromRGBO(143, 148, 251, 1),
+	                         //color: Color.fromRGBO(143, 148, 251, .6),
+	                        
+               // color: Colors.blue,
                 child: new Text(_isLoginForm ? 'Login' : 'Create account',
                 style: new TextStyle(fontSize: 20.0, color: Colors.white)),
             onPressed: validateAndSubmit,

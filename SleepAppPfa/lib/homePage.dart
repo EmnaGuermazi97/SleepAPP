@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/UitlisateurClass.dart';
-import 'package:tutorials_test/widgets/NavigationButtonLearn.dart';
 import 'package:tutorials_test/widgets/customNavBar.dart';
 import 'package:tutorials_test/widgets/navigationButton.dart';
 import 'package:tutorials_test/widgets/navigationButtonISI.dart';
@@ -60,10 +59,10 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  (navigationButton(context, 'Connect Watch',
-                      img: 'assets/images/bluetooth.png')),
-                  navigationButtonLearn(context, 'Learn More',
-                      img: 'assets/images/learn.png',user: userHome,
+                 /* (navigationButton(context, 'Connect Watch',
+                      img: 'assets/images/bluetooth.png')),*/
+                  navigationButton(context, 'Learn More',
+                      img: 'assets/images/learn.png',
                       routeName: '/learnMorePage'),
                   navigationButton(context, 'Help Me Sleep',
                       img: 'assets/images/help.png',

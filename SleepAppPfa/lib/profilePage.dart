@@ -36,19 +36,7 @@ class _ProfilePageState extends State<ProfilePage> {
   String birthdayValue;
   String adressValue;
   String getUserNameValue() => userNameValue;
-  signOut() async {
-    try {
-      print('we are at ProfilePageNavBar');
-      print("this sign out");
-      print(widget.userId);
-      await widget.auth.signOut();
-      print('this is after the sigout  function');
-      widget.logoutCallback();
-      print('this is after the logoutCallback function');
-    } catch (e) {
-      print(e);
-    }
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -86,10 +74,10 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return SafeArea(
       child: Scaffold(
-        appBar: new AppBar(
+        appBar: AppBar(
           title: new Text('ProfilePage'),
           centerTitle: true,
-          actions: <Widget>[ RaisedButton(onPressed:
+         /* actions: <Widget>[ RaisedButton(onPressed:
 
                 {// hey can u try  the next line instead of navigator? it should work but i get an error ,even navigator gives me an error
                 //they both give me the same error
@@ -104,7 +92,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: new Text('Logout',
                     style: new TextStyle(fontSize: 17.0, color: Colors.white)),
                 onPressed: signOut)*/
-          ],
+          ],*/
         ),
         /* appBar: AppBar(
           leading: Container(),
