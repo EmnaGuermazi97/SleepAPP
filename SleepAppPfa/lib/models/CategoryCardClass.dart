@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CategoryCard extends StatelessWidget {
-  final String svgSrc;
+  final String imgSrc;
   final String title;
   final Function press;
   const CategoryCard({
     Key key,
-    this.svgSrc,
+    this.imgSrc,
     this.title,
     this.press,
   }) : super(key: key);
@@ -39,7 +38,9 @@ class CategoryCard extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Spacer(),
-                  SvgPicture.asset(svgSrc),
+                  Image(
+                    image: AssetImage(imgSrc),
+                  ),
                   Spacer(),
                   Text(
                     title,
