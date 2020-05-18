@@ -6,27 +6,36 @@ import 'package:tutorials_test/widgets/customNavBar.dart';
 class RelaxingMusic extends StatefulWidget {
   @override
   _RelaxingMusic createState() => _RelaxingMusic();
-  AudioTools audioTools = AudioTools();
-  RelaxingMusic(AudioTools audioTools);
+  // RelaxingMusic({Key: key}) : super(key: key);
 }
 
 class _RelaxingMusic extends State<RelaxingMusic> {
-  AudioPlayer audioPlayer = AudioPlayer();
-  bool isPlaying = false;
-  bool firstTime = true;
-  String currentTime = "00:00";
-  String completeTime = "00:00";
+  AudioTools audioTools = new AudioTools(
+      audioPlayer: new AudioPlayer(),
+      isPlaying: false,
+      firstTime: true,
+      currentTime: "00:00",
+      completeTime: "00:00");
+
+  @override
+  void initState() {
+    super.initState();
+
+    audioTools.audioPlayer.onAudioPositionChanged.listen((Duration duration) {
+      setState(() {
+        audioTools.currentTime = duration.toString().split(".")[0];
+      });
+    });
+
+    audioTools.audioPlayer.onDurationChanged.listen((Duration duration) {
+      setState(() {
+        audioTools.completeTime = duration.toString().split(".")[0];
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    widget.audioTools = new AudioTools(
-      audioPlayer: audioPlayer,
-      isPlaying: isPlaying,
-      firstTime: firstTime,
-      currentTime: currentTime,
-      completeTime: completeTime,
-    );
-    widget.audioTools.initState();
-    widget.audioTools.dispose();
     return Scaffold(
       appBar: AppBar(
         leading: Container(),
@@ -75,25 +84,26 @@ class _RelaxingMusic extends State<RelaxingMusic> {
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
                       IconButton(
-                        icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
+                        icon: Icon(audioTools.isPlaying ? Icons.pause : Icons.play_arrow),
                         onPressed: () {
-                          if (widget.audioTools.isPlaying) {
-                            widget.audioTools.audioPlayer.pause();
+                          if (audioTools.isPlaying) {
+                            audioTools.audioPlayer.pause();
 
                             setState(() {
-                              firstTime = false;
-                              isPlaying = false;
+                              audioTools.firstTime = false;
+                              audioTools.isPlaying = false;
                             });
                           } else {
-                            if (!firstTime) {
-                              widget.audioTools.audioPlayer.resume();
+                            if (!audioTools.firstTime) {
+                              audioTools.audioPlayer.resume();
 
                               setState(() {
-                                firstTime = false;
-                                isPlaying = true;
+                                audioTools.firstTime = false;
+                                audioTools.isPlaying = true;
                               });
                             } else {
-                              widget.audioTools.startPlayingFromScratch("audios/meditate.mp3");
+                              audioTools.startPlayingFromScratch(
+                                  "audios/meditate.mp3");
                             }
                           }
                         },
@@ -104,20 +114,20 @@ class _RelaxingMusic extends State<RelaxingMusic> {
                       IconButton(
                         icon: Icon(Icons.stop),
                         onPressed: () {
-                          widget.audioTools.audioPlayer.stop();
+                          audioTools.audioPlayer.stop();
 
                           setState(() {
-                            widget.audioTools.isPlaying = false;
+                            audioTools.isPlaying = false;
                           });
                         },
                       ),
                       Text(
-                        widget.audioTools.currentTime,
+                        audioTools.currentTime,
                         style: TextStyle(fontWeight: FontWeight.w700),
                       ),
                       Text(" | "),
                       Text(
-                        widget.audioTools.completeTime,
+                        audioTools.completeTime,
                         style: TextStyle(fontWeight: FontWeight.w300),
                       ),
                     ],
