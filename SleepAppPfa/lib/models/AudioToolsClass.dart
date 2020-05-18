@@ -2,7 +2,13 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
-class AudioTools extends StatefulWidget {
+class AudioTools extends StatefulWidget {   
+   AudioPlayer audioPlayer;
+    bool isPlaying;
+   bool firstTime;
+   String currentTime;
+   String completeTime;
+
   AudioTools(
       {Key key,
       this.audioPlayer,
@@ -11,16 +17,13 @@ class AudioTools extends StatefulWidget {
       this.currentTime,
       this.completeTime})
       : super(key: key);
-   AudioPlayer audioPlayer;
-   bool isPlaying;
-   bool firstTime;
-   String currentTime;
-   String completeTime;
   @override
   _AudioToolsState createState() => _AudioToolsState();
+
 }
 
 class _AudioToolsState extends State<AudioTools> {
+ 
   get audioPlayer => widget.audioPlayer;
   get completeTime => widget.completeTime;
   get currentTime => widget.currentTime;
@@ -33,8 +36,7 @@ class _AudioToolsState extends State<AudioTools> {
   set isPlaying(bool isPlaying) {}
 
   set audioPlayer(AudioPlayer audioPlayer) {}
-
-  @override
+     @override
   void dispose() {
     widget.audioPlayer.stop();
     super.dispose();
@@ -69,10 +71,10 @@ class _AudioToolsState extends State<AudioTools> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
     return null;
   }
 
 }
-

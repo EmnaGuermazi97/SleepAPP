@@ -1,61 +1,36 @@
-import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:tutorials_test/models/AudioToolsClass.dart';
 import 'package:tutorials_test/widgets/customNavBar.dart';
 
-class MeditationPage extends StatefulWidget {
+class RelaxingMusic extends StatefulWidget {
   @override
-  _MeditationState createState() => _MeditationState();
+  _RelaxingMusic createState() => _RelaxingMusic();
+  AudioTools audioTools = AudioTools();
+  RelaxingMusic(AudioTools audioTools);
 }
 
-class _MeditationState extends State<MeditationPage> {
-  AudioPlayer _audioPlayer = AudioPlayer();
+class _RelaxingMusic extends State<RelaxingMusic> {
+  AudioPlayer audioPlayer = AudioPlayer();
   bool isPlaying = false;
   bool firstTime = true;
-
   String currentTime = "00:00";
   String completeTime = "00:00";
   @override
-  void dispose() {
-    _audioPlayer.stop();
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-
-    _audioPlayer.onAudioPositionChanged.listen((Duration duration) {
-      setState(() {
-        currentTime = duration.toString().split(".")[0];
-      });
-    });
-
-    _audioPlayer.onDurationChanged.listen((Duration duration) {
-      setState(() {
-        completeTime = duration.toString().split(".")[0];
-      });
-    });
-  }
-
-  void startPlayingFromScratch() async {
-    String filePath = "audios/meditate.mp3";
-    final cache = AudioCache();
-
-    _audioPlayer = await cache.play(filePath);
-    debugPrint(filePath);
-    setState(() {
-      firstTime = true;
-      isPlaying = true;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    widget.audioTools = new AudioTools(
+      audioPlayer: audioPlayer,
+      isPlaying: isPlaying,
+      firstTime: firstTime,
+      currentTime: currentTime,
+      completeTime: completeTime,
+    );
+    widget.audioTools.initState();
+    widget.audioTools.dispose();
     return Scaffold(
       appBar: AppBar(
         leading: Container(),
-        title: Text("Meditate"),
+        title: Text("Relaxing Music"),
         centerTitle: true,
       ),
       bottomNavigationBar: customNavBar(context, 0),
@@ -88,7 +63,10 @@ class _MeditationState extends State<MeditationPage> {
                           color: Colors.orange[100].withOpacity(0.5),
                           spreadRadius: 5,
                           blurRadius: 7,
-                          offset: Offset(3,0,), // changes position of shadow
+                          offset: Offset(
+                            3,
+                            0,
+                          ), // changes position of shadow
                         ),
                       ],
                       borderRadius: BorderRadius.circular(50)),
@@ -99,8 +77,8 @@ class _MeditationState extends State<MeditationPage> {
                       IconButton(
                         icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
                         onPressed: () {
-                          if (isPlaying) {
-                            _audioPlayer.pause();
+                          if (widget.audioTools.isPlaying) {
+                            widget.audioTools.audioPlayer.pause();
 
                             setState(() {
                               firstTime = false;
@@ -108,14 +86,14 @@ class _MeditationState extends State<MeditationPage> {
                             });
                           } else {
                             if (!firstTime) {
-                              _audioPlayer.resume();
+                              widget.audioTools.audioPlayer.resume();
 
                               setState(() {
                                 firstTime = false;
                                 isPlaying = true;
                               });
                             } else {
-                              startPlayingFromScratch();
+                              widget.audioTools.startPlayingFromScratch("audios/meditate.mp3");
                             }
                           }
                         },
@@ -126,20 +104,20 @@ class _MeditationState extends State<MeditationPage> {
                       IconButton(
                         icon: Icon(Icons.stop),
                         onPressed: () {
-                          _audioPlayer.stop();
+                          widget.audioTools.audioPlayer.stop();
 
                           setState(() {
-                            isPlaying = false;
+                            widget.audioTools.isPlaying = false;
                           });
                         },
                       ),
                       Text(
-                        currentTime,
+                        widget.audioTools.currentTime,
                         style: TextStyle(fontWeight: FontWeight.w700),
                       ),
                       Text(" | "),
                       Text(
-                        completeTime,
+                        widget.audioTools.completeTime,
                         style: TextStyle(fontWeight: FontWeight.w300),
                       ),
                     ],
