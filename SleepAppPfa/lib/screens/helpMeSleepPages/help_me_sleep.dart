@@ -60,7 +60,7 @@ class _HelpMeSleepState extends State<HelpMeSleepPage> {
                       children: <Widget>[
                         CategoryCard(
                           title: "Diet recommendation",
-                          svgSrc: "assets/icons/Hamburger.svg",
+                          imgSrc: "assets/icons/Hamburger.png",
                           press: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
@@ -70,7 +70,7 @@ class _HelpMeSleepState extends State<HelpMeSleepPage> {
                         ),
                         CategoryCard(
                           title: "Excercices for a better sleep",
-                          svgSrc: "assets/icons/Excrecises.svg",
+                          imgSrc: "assets/icons/Exercices.png",
                           press: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
@@ -80,7 +80,7 @@ class _HelpMeSleepState extends State<HelpMeSleepPage> {
                         ),
                         CategoryCard(
                           title: "Meditation",
-                          svgSrc: "assets/icons/Meditation.svg",
+                          imgSrc: "assets/icons/Meditation.png",
                           press: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
@@ -90,7 +90,7 @@ class _HelpMeSleepState extends State<HelpMeSleepPage> {
                         ),
                         CategoryCard(
                           title: "Relaxing Music",
-                          svgSrc: "assets/icons/yoga.svg",
+                          imgSrc: "assets/icons/yoga.png",
                           press: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
