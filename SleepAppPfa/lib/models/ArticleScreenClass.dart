@@ -38,7 +38,8 @@ class _ArticleScreen extends State<ArticleScreen> {
                       //add blue shadow
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.lightBlue[50],
+                        //  color: Colors.lightBlue[50],
+                        color:Color.fromRGBO(143, 148, 251, 1),
                           // has the effect of softening the shadow
                           spreadRadius:
                               4.0, // has the effect of extending the shadow

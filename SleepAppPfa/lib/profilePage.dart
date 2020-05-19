@@ -164,7 +164,9 @@ String fileNameeee = file.path.split('/').last;
                         alignment: Alignment.center,
                         child: CircleAvatar(
                           radius: 100,
-                          backgroundColor: Color(0xff476cfb),
+                          backgroundColor: 
+                          Color(0xff476cfb),
+                          //Color.fromRGBO(143, 148, 251, 1),
                           child: ClipOval(
                             child: new SizedBox(
                                 width: 180.0,
@@ -245,6 +247,8 @@ String fileNameeee = file.path.split('/').last;
                         child: Container(
                           child: Icon(
                             FontAwesomeIcons.pen,
+                            //color: Colors.blue,
+                           // color:Color.fromRGBO(143, 148, 251, 1),
                             color: Color(0xff476cfb),
                           ),
                         ),
@@ -313,6 +317,8 @@ String fileNameeee = file.path.split('/').last;
 
                           child: Icon(
                             FontAwesomeIcons.pen,
+                           // color: Colors.blue,
+                            //color:Color.fromRGBO(143, 148, 251, 1),
                             color: Color(0xff476cfb),
                           ),
                         ),
@@ -359,7 +365,10 @@ String fileNameeee = file.path.split('/').last;
                         child: Container(
                           child: Icon(
                             FontAwesomeIcons.pen,
+                          
+                         //  color: Colors.blue,
                             color: Color(0xff476cfb),
+                           //color:Color.fromRGBO(143, 148, 251, 1),
                           ),
                         ),
                       ),
