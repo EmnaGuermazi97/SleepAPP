@@ -16,7 +16,9 @@ Widget navigationButton(BuildContext context, String title,
           borderRadius: BorderRadius.circular(15.0),
         ),
         
-        color: Color(0xff476cfb),
+      //  color: Color(0xff476cfb),
+        color: Color(0xff01579B),
+       
        // color:Color.fromRGBO(143, 148, 251, 1),
        // color: Colors.blue,
         child: Row(

@@ -165,7 +165,8 @@ String fileNameeee = file.path.split('/').last;
                         child: CircleAvatar(
                           radius: 100,
                           backgroundColor: 
-                          Color(0xff476cfb),
+                          Color(0xff01579B),
+                         // Color(0xff476cfb), // the first color
                           //Color.fromRGBO(143, 148, 251, 1),
                           child: ClipOval(
                             child: new SizedBox(
@@ -249,7 +250,8 @@ String fileNameeee = file.path.split('/').last;
                             FontAwesomeIcons.pen,
                             //color: Colors.blue,
                            // color:Color.fromRGBO(143, 148, 251, 1),
-                            color: Color(0xff476cfb),
+                          //  color: Color(0xff476cfb),
+                          color: Color(0xff01579B),
                           ),
                         ),
                       ),
@@ -319,7 +321,8 @@ String fileNameeee = file.path.split('/').last;
                             FontAwesomeIcons.pen,
                            // color: Colors.blue,
                             //color:Color.fromRGBO(143, 148, 251, 1),
-                            color: Color(0xff476cfb),
+                            //color: Color(0xff476cfb),
+                            color: Color(0xff01579B),
                           ),
                         ),
                       ),
@@ -367,8 +370,9 @@ String fileNameeee = file.path.split('/').last;
                             FontAwesomeIcons.pen,
                           
                          //  color: Colors.blue,
-                            color: Color(0xff476cfb),
+                            //color: Color(0xff476cfb), // first color
                            //color:Color.fromRGBO(143, 148, 251, 1),
+                           color: Color(0xff01579B),
                           ),
                         ),
                       ),
@@ -437,7 +441,8 @@ String fileNameeee = file.path.split('/').last;
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       RaisedButton(
-                        color: Color(0xff476cfb),
+                        color: Color(0xff01579B),
+                       // color: Color(0xff476cfb),
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
@@ -449,7 +454,8 @@ String fileNameeee = file.path.split('/').last;
                         ),
                       ),
                       RaisedButton(
-                        color: Color(0xff476cfb),
+                        color: Color(0xff01579B),
+                       // color: Color(0xff476cfb),
                         onPressed: () {
                           uploadPic(context);
                           //getUrl();
