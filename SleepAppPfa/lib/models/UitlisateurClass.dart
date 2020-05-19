@@ -24,7 +24,8 @@ class Utilisateur {
           this.location = values['location'];
           this.email = values['Email'];
           this.isiResult = values['isiResult'];
-          this.urlPic= values['urlPic'];
+          this.profilePicName= values['profilePicName'];
+          this.urlPic=values['urlPic'];
           print(this.email);
         }
       });

@@ -30,16 +30,20 @@ class Auth implements BaseAuth {
     AuthResult result = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
     FirebaseUser user = result.user;
-    await FirebaseDatabase.instance.reference().child('users').child(user.uid).set({
+    await FirebaseDatabase.instance
+        .reference()
+        .child('users')
+        .child(user.uid)
+        .set({
       'UserID': user.uid,
       'userName': "Anonymous",
       'birthDay': "DD/MM/YYYY",
-      'location': "Unkown", 
-      'Email' : email,
-      'isiResult' : 'Not token Yet',
-      'urlPic' : "https://images.unsplash.com/photo-1502164980785-f8aa41d53611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    }
-    ).catchError((onError)=>print(onError));
+      'location': "Unkown",
+      'Email': email,
+      'isiResult': 'Not token Yet',
+      'profilePicName': "profilDefaultImage.jpg",
+      'urlPic': " ",
+    }).catchError((onError) => print(onError));
 
     return user.uid; //de type String
   }

@@ -1,4 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_image/firebase_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/Storage/mobile_storage.dart';
 import 'package:tutorials_test/homePage.dart';
@@ -55,7 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
       setState(() {
         _image = image;
-       widget.user.profilePicName = _image.path.split('/').last;
+        widget.user.profilePicName = _image.path.split('/').last;
         print('Image Path $_image');
       });
     }
@@ -75,19 +76,18 @@ class _ProfilePageState extends State<ProfilePage> {
     }
 
     Future<String> getUrl() async {
-  
-    try {
-      // Get image URL from firebase
-      final ref = FirebaseStorage().ref().child(widget.user.profilePicName);
-      var url = await ref.getDownloadURL();
-      widget.user.urlPic = url;
-     
+      try {
+        // Get image URL from firebase
+        final ref = FirebaseStorage().ref().child(widget.user.profilePicName);
+        var url = await ref.getDownloadURL();
+        print("l'url obtenu est: " + url);
+
+        widget.user.urlPic = url;
+        print("la valeur de urlPic est: " + widget.user.urlPic);
+      } catch (e) {
+        print(e.message);
+      }
     }
-    catch(e){
-      print(e.message);
-    }
-    
-   }
 
     /*Future<String> loadPic(BuildContext context, String image) async {
       // changed the type from widget to String 
@@ -167,20 +167,25 @@ String fileNameeee = file.path.split('/').last;
                           backgroundColor: Color(0xff476cfb),
                           child: ClipOval(
                             child: new SizedBox(
-                              width: 180.0,
-                              height: 180.0,
-                              child: (_image != null)
-                                  ? Image.file(
-                                      _image,
-                                      fit: BoxFit.fill,
-                                    )
-                                  : Image.network(
+                                width: 180.0,
+                                height: 180.0,
+                                child: (_image != null)
+                                    ? Image.file(
+                                        _image,
+                                        fit: BoxFit.fill,
+                                      )
+                                    : Image(
+                                        image: FirebaseImage(
+                                            'gs://sleepapppfa-e7cb8.appspot.com/' +
+                                                widget.user.profilePicName),
+                                        fit: BoxFit.fill,
+                                      ) /* Image.network(
                                       widget.user.urlPic
                                       // myProfilePicFile = new File(widget.user.profilePicture)
                                       ,
                                       fit: BoxFit.fill,
-                                    ),
-                            ),
+                                    ),*/
+                                ),
                           ),
                         ),
                       ),
@@ -438,6 +443,7 @@ String fileNameeee = file.path.split('/').last;
                         color: Color(0xff476cfb),
                         onPressed: () {
                           uploadPic(context);
+                          //getUrl();
                           //loadPic(context,widget.user.profilePicName);
                           // loadPic(context);
 
