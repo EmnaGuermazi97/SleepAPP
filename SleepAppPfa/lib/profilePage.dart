@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:tutorials_test/Storage/mobile_storage.dart';
 import 'package:tutorials_test/homePage.dart';
 import 'package:tutorials_test/loginSignUpPageEm.dart';
 import 'package:tutorials_test/models/UitlisateurClass.dart';
@@ -37,7 +38,6 @@ class _ProfilePageState extends State<ProfilePage> {
   String adressValue;
   String getUserNameValue() => userNameValue;
 
-
   @override
   Widget build(BuildContext context) {
     widget.user.loadUserData(widget.userId);
@@ -55,12 +55,14 @@ class _ProfilePageState extends State<ProfilePage> {
 
       setState(() {
         _image = image;
+       widget.user.profilePicName = _image.path.split('/').last;
         print('Image Path $_image');
       });
     }
 
     Future uploadPic(BuildContext context) async {
       String fileName = basename(_image.path);
+
       StorageReference firebaseStorageRef =
           FirebaseStorage.instance.ref().child(fileName);
       StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
@@ -72,33 +74,79 @@ class _ProfilePageState extends State<ProfilePage> {
       });
     }
 
+    Future<String> getUrl() async {
+  
+    try {
+      // Get image URL from firebase
+      final ref = FirebaseStorage().ref().child(widget.user.profilePicName);
+      var url = await ref.getDownloadURL();
+      widget.user.urlPic = url;
+     
+    }
+    catch(e){
+      print(e.message);
+    }
+    
+   }
+
+    /*Future<String> loadPic(BuildContext context, String image) async {
+      // changed the type from widget to String 
+     // Image m;
+
+      await FireStorageService.loadImage(context, image).then((downloadUrl) {
+       /* m = Image.network(
+          downloadUrl.toString(),
+          // fit: BoxFit.scaleDown,
+        );*/
+        widget.user.urlPic= downloadUrl.toString();
+      });
+      return widget.user.urlPic;
+    }*/
+
+    /* Future loadPic(BuildContext context) async {
+      
+
+      final ref =
+          FirebaseStorage.instance.ref().child(widget.user.profilePicName);
+      // no need of the file extension, the name will do fine.
+      var url = await ref.getDownloadURL();
+       widget.user.urlPic= url;
+      print('this is affectation au user.url'+widget.user.urlPic);
+      print('this is profile pic url'+url);
+    }*/
+
+    File myProfilePicFile;
+
+/*File file = new File("/storage/emulated/0/Android/data/my_app/files/Pictures/emna12345.png"); 
+String fileNameeee = file.path.split('/').last;
+ print('this is test:   '+fileNameeee);*/
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: new Text('ProfilePage'),
           centerTitle: true,
-         /* actions: <Widget>[ RaisedButton(onPressed:
-
-                {// hey can u try  the next line instead of navigator? it should work but i get an error ,even navigator gives me an error
-                //they both give me the same error
-                //FirebaseAuthProvider.instance.signOut();
-                   Navigator.push(context,MaterialPageRoute(builder: (context) =>LoginPageE(
-                
-               )
-               )
-               )}
-               )
-           /* new FlatButton(
-                child: new Text('Logout',
-                    style: new TextStyle(fontSize: 17.0, color: Colors.white)),
-                onPressed: signOut)*/
-          ],*/
+          /* actions: <Widget>[ RaisedButton(onPressed:
+    
+                    {// hey can u try  the next line instead of navigator? it should work but i get an error ,even navigator gives me an error
+                    //they both give me the same error
+                    //FirebaseAuthProvider.instance.signOut();
+                       Navigator.push(context,MaterialPageRoute(builder: (context) =>LoginPageE(
+                    
+                   )
+                   )
+                   )}
+                   )
+               /* new FlatButton(
+                    child: new Text('Logout',
+                        style: new TextStyle(fontSize: 17.0, color: Colors.white)),
+                    onPressed: signOut)*/
+              ],*/
         ),
         /* appBar: AppBar(
-          leading: Container(),
-          title: Text('Profile'),
-          centerTitle: true,
-        ),*/
+              leading: Container(),
+              title: Text('Profile'),
+              centerTitle: true,
+            ),*/
         backgroundColor: Color(0xffeaf6ff),
         body: SingleChildScrollView(
           child: Builder(
@@ -127,7 +175,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                       fit: BoxFit.fill,
                                     )
                                   : Image.network(
-                                      "https://images.unsplash.com/photo-1502164980785-f8aa41d53611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                                      widget.user.urlPic
+                                      // myProfilePicFile = new File(widget.user.profilePicture)
+                                      ,
                                       fit: BoxFit.fill,
                                     ),
                             ),
@@ -338,13 +388,14 @@ class _ProfilePageState extends State<ProfilePage> {
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top:30.0),
+                            padding: const EdgeInsets.only(top: 30.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: <Widget>[
                                 Text('Email',
                                     style: TextStyle(
-                                        color: Colors.blueGrey, fontSize: 18.0)),
+                                        color: Colors.blueGrey,
+                                        fontSize: 18.0)),
                                 SizedBox(width: 8.0),
                               ],
                             ),
@@ -387,6 +438,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Color(0xff476cfb),
                         onPressed: () {
                           uploadPic(context);
+                          //loadPic(context,widget.user.profilePicName);
+                          // loadPic(context);
 
                           FirebaseDatabase.instance
                               .reference()
@@ -397,7 +450,17 @@ class _ProfilePageState extends State<ProfilePage> {
                             'birthDay': widget.user.birthDay,
                             'location': widget.user.location,
                             'Email': widget.user.email,
+                            'urlPic': widget.user.urlPic,
+                            'profilePicName': widget.user.profilePicName,
                           });
+                          print(' nouveau url Pic after submit   ' +
+                              widget.user.urlPic);
+                          print('profilPicName after submit   ' +
+                              widget.user.profilePicName);
+
+                          print("new Data uploaded");
+                          Scaffold.of(context).showSnackBar(SnackBar(
+                              content: Text('Data Uploaded sucessfully ')));
                         },
                         elevation: 4.0,
                         splashColor: Colors.blueGrey,

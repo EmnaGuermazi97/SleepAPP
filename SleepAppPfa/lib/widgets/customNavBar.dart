@@ -6,7 +6,7 @@ import 'package:tutorials_test/profilePage.dart';
 import 'package:tutorials_test/services/authentication.dart';
 
 
-Widget customNavBar(BuildContext context, int activeIndex,
+Widget  customNavBar(BuildContext context, int activeIndex,
     {BaseAuth auth, VoidCallback logoutCallback, String userId}) {
       Utilisateur user = new Utilisateur(userId);
   return CupertinoTabBar(

@@ -255,8 +255,8 @@ Widget showLogo() {
                 elevation: 5.0,
                 shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0)),
-                     
-	                         color:Color.fromRGBO(143, 148, 251, 1),
+                          // color:Colors.blue,
+	                        color:Color.fromRGBO(143, 148, 251, 1),
 	                         //color: Color.fromRGBO(143, 148, 251, .6),
 	                        
                // color: Colors.blue,

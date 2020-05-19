@@ -36,8 +36,10 @@ class Auth implements BaseAuth {
       'birthDay': "DD/MM/YYYY",
       'location': "Unkown", 
       'Email' : email,
-      'isiResult' : 'Not token Yet'
-    }).catchError((onError)=>print(onError));
+      'isiResult' : 'Not token Yet',
+      'urlPic' : "https://images.unsplash.com/photo-1502164980785-f8aa41d53611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    }
+    ).catchError((onError)=>print(onError));
 
     return user.uid; //de type String
   }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 Widget navigationButton(BuildContext context, String title,
     {String img, String routeName}) {
+      
   return Container(
     decoration: BoxDecoration(borderRadius: BorderRadius.circular(15.0)),
     width: MediaQuery.of(context).size.width *
@@ -14,6 +15,7 @@ Widget navigationButton(BuildContext context, String title,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),
+       // color:Color.fromRGBO(143, 148, 251, 1),
         color: Colors.blue,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
