@@ -76,8 +76,8 @@ class _HomePageState extends State<HomePage> {
           context,
           0,
           userId: widget.userId,
-          auth: widget.auth,
-          logoutCallback: widget.logoutCallback,
+         // auth: widget.auth,
+         // logoutCallback: widget.logoutCallback,
         ),
      
       ),

@@ -45,7 +45,7 @@ Widget  customNavBar(BuildContext context, int activeIndex,
           //Navigator.pop(context);
             //Navigator.of(context).popUntil((route) => route.isFirst);
             Navigator.push(context,MaterialPageRoute(builder: (context) =>JournalPage(
-                userId: userId, auth: auth, logoutCallback: logoutCallback 
+                userId: userId
                 )
                 ));
          
@@ -65,7 +65,7 @@ Widget  customNavBar(BuildContext context, int activeIndex,
            // Navigator.of(context).popUntil((route) => route.isFirst);
             
             Navigator.push(context,MaterialPageRoute(builder: (context) =>ProfilePage(
-                userId: userId, auth: auth, logoutCallback: logoutCallback, user: user,
+                userId: userId, user: user,
                 )
                 ));
            /*new ProfilePage(

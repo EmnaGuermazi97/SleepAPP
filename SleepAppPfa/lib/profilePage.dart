@@ -16,11 +16,10 @@ import 'package:flutter/services.dart';
 //import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProfilePage extends StatefulWidget {
-  ProfilePage({Key key, this.auth, this.userId, this.logoutCallback, this.user})
+  ProfilePage({Key key, this.userId,  this.user})
       : super(key: key); //{user.loadUserData(userId);}
   final Utilisateur user;
-  final BaseAuth auth;
-  final VoidCallback logoutCallback;
+
   final String userId;
 
   /*void PUserName() {
@@ -501,8 +500,7 @@ String fileNameeee = file.path.split('/').last;
           context,
           2,
           userId: widget.userId,
-          auth: widget.auth,
-          logoutCallback: widget.logoutCallback,
+      
         ),
       ),
     );
