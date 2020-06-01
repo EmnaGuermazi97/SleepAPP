@@ -5,6 +5,7 @@ import 'diet_recommendation.dart';
 import 'exercices.dart';
 import 'meditation.dart';
 import 'package:flutter/widgets.dart';
+import 'relaxing_music.dart';
 
 class HelpMeSleepPage extends StatefulWidget {
   @override
@@ -94,7 +95,7 @@ class _HelpMeSleepState extends State<HelpMeSleepPage> {
                           press: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return MeditationPage();
+                              return RelaxingMusic();
                             }));
                           },
                         ),
