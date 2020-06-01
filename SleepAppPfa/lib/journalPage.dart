@@ -4,15 +4,14 @@ import 'package:tutorials_test/services/authentication.dart';
 import 'package:tutorials_test/widgets/customNavBar.dart';
 
 class JournalPage extends StatefulWidget {
-  JournalPage({Key key, this.auth, this.userId, this.logoutCallback,this.user})
+  JournalPage({Key key, this.userId, this.user})
       : super(key: key) {
     print("this is actual journalPage/n");
      print("this is user Id/n"+userId);
     // prints "Print me to console"}
   }
   Utilisateur user;
-  final BaseAuth auth;
-  final VoidCallback logoutCallback;
+
   final String userId;
   @override
   _JournalPageState createState() => _JournalPageState();
@@ -37,8 +36,7 @@ class _JournalPageState extends State<JournalPage> {
           context,
           1,
           userId: widget.userId,
-          auth: widget.auth,
-          logoutCallback: widget.logoutCallback,
+        
         ),
       ),
     );
