@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/Animation/fadeAnimation.dart';
-import 'package:tutorials_test/widgets/customButton.dart';
-import 'package:tutorials_test/widgets/divider.dart';
-import 'services/authentication.dart';
+import 'package:tutorials_test/services/authentication.dart';
+
+
 
 class LoginPageE extends StatefulWidget {
     LoginPageE ({this.auth, this.loginCallback});
@@ -32,26 +32,7 @@ class _LoginPageEState extends State<LoginPageE> {
     }
     return false;
   }
-    void _showVerifyEmailSentDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        // return object of type Dialog
-        return AlertDialog(
-          title: new Text("Verify your account"),
-          content: new Text("Link to verify account has been sent to your email"),
-          actions: <Widget>[
-            new FlatButton(
-              child: new Text("Dismiss"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }   
+ 
 
   // Perform login or signup
   void validateAndSubmit() async {
@@ -68,7 +49,7 @@ class _LoginPageEState extends State<LoginPageE> {
         } else {
           userId = await widget.auth.signUp(_email, _password);
           widget.auth.sendEmailVerification();
-          _showVerifyEmailSentDialog();
+          //_showVerifyEmailSentDialog();
           
           toggleFormMode();
           print('Signed up user: $userId');
@@ -189,22 +170,7 @@ Widget showLogo() {
                   ],
                   ) 
                   );
-    /*new Hero(
-      tag: 'hero',
-      child: Padding(
-        padding: EdgeInsets.fromLTRB(0.0, 70.0, 0.0, 0.0),
-        child: CircleAvatar(
-          backgroundColor: Colors.transparent,
-          radius: 48.0,
-          child:
-          
-           ClipRRect(
-             borderRadius: BorderRadius.circular(80.0),
-             child: Image.asset('assets/images/moon1.jpg')),
-         
-        ),
-      ),
-    );*/
+
   }
   Widget showEmailInput() {
     
@@ -306,17 +272,7 @@ Widget showForm() {
             showPrimaryButton(),
             showSecondaryButton(),
             showErrorMessage(),
-          /*       divider(),
-              customButton(context,'Continue with Google',
-                  img: 'assets/images/google.png'),
-              SizedBox(
-                height: 30.0,
-              ),
-              customButton(context,'Continue With FaceBook',
-                  img: 'assets/images/facebook.png'),
-              SizedBox(
-                height: 40.0,
-              ),*/
+  
           
             
           ],

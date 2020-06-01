@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:firebase_database/firebase_database.dart';
 
 
@@ -11,7 +11,7 @@ class Utilisateur {
   String isiResult;
  
   String profilePicName;
-  String urlPic;
+ 
   Utilisateur(String userid) {
     this.userID = userid;
     var db = FirebaseDatabase.instance.reference().child("users");
@@ -25,7 +25,7 @@ class Utilisateur {
           this.email = values['Email'];
           this.isiResult = values['isiResult'];
           this.profilePicName= values['profilePicName'];
-          this.urlPic=values['urlPic'];
+        
           print(this.email);
         }
       });

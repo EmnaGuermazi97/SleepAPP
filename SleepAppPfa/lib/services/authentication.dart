@@ -40,7 +40,7 @@ class Auth implements BaseAuth {
       'birthDay': "DD/MM/YYYY",
       'location': "Unkown",
       'Email': email,
-      'isiResult': 'Not token Yet',
+      'isiResult': 'Not taken Yet',
       'profilePicName': "profilDefaultImage.jpg",
       'urlPic': " ",
     }).catchError((onError) => print(onError));
