@@ -35,7 +35,7 @@ class _LoginPageEState extends State<LoginPageE> {
  
 
   // Perform login or signup
-  void validateAndSubmit() async {
+  void performLoginOrSignupAndSubmit() async {
     setState(() {
       _errorMessage = "";
       _isLoading = true;
@@ -211,7 +211,7 @@ Widget showLogo() {
       ),
     );
   }
-  Widget showPrimaryButton() {
+  Widget showLoginButton() {
    
         return new Padding(
             padding: EdgeInsets.fromLTRB(0.0, 45.0, 0.0, 0.0),
@@ -228,11 +228,11 @@ Widget showLogo() {
                // color: Colors.blue,
                 child: new Text(_isLoginForm ? 'Login' : 'Create account',
                 style: new TextStyle(fontSize: 20.0, color: Colors.white)),
-            onPressed: validateAndSubmit,
+            onPressed: performLoginOrSignupAndSubmit,
           ),
         ));
   }
-  Widget showSecondaryButton() {
+  Widget showCreateButton() {
     return new FlatButton(
         child: new Text(
             _isLoginForm ? 'Create an account' : 'Have an account? Sign in',
@@ -269,8 +269,8 @@ Widget showForm() {
             showLogo(),
             showEmailInput(),
             showPasswordInput(),
-            showPrimaryButton(),
-            showSecondaryButton(),
+            showLoginButton(),
+            showCreateButton(),
             showErrorMessage(),
   
           

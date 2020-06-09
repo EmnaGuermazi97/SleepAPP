@@ -27,9 +27,14 @@ class _ProfilePageState extends State<ProfilePage> {
   String userNameValue;
   String birthdayValue;
   String adressValue;
+  
+ 
+
+
 
   @override
   Widget build(BuildContext context) {
+  
     widget.user.loadUserData(widget.userId);
     TextEditingController controllerBirthday = TextEditingController();
     TextEditingController controllerUserName = TextEditingController();

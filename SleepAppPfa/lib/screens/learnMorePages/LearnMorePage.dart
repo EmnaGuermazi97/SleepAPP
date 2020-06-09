@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/ArticleScreenClass.dart';
 import 'package:tutorials_test/models/ArticleClass.dart';
-import 'package:tutorials_test/models/UitlisateurClass.dart';
+
 
 import 'List_learn_more.dart';
 

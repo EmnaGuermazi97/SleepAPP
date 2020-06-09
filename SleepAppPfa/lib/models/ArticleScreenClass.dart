@@ -9,10 +9,10 @@ class ArticleScreen extends StatefulWidget {
   ArticleScreen({this.article, this.articleTitleAppBAR});
 
   @override
-   createState() => _ArticleScreen();
+   createState() => _ArticleScreenState();
 }
 
-class _ArticleScreen extends State<ArticleScreen> {
+class _ArticleScreenState extends State<ArticleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
