@@ -12,7 +12,7 @@ class _ExercicesPage extends State<ExercicesPage> {
       print(articlesHelpMe.length);
     return SafeArea(
         child: Scaffold(
-            body: ArticleScreen(article: articlesHelpMe[1], articleTitle: "Exercices",),
+            body: ArticleScreen(article: articlesHelpMe[1], articleTitleAppBAR: "Exercices",),
             )
             );
   }

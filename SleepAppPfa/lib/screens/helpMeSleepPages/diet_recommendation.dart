@@ -11,7 +11,7 @@ class _DietRecommendationPage extends State<DietRecommendationPage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            body: ArticleScreen(article: articlesHelpMe[0], articleTitle: 'Diet Recommendation'),
+            body: ArticleScreen(article: articlesHelpMe[0], articleTitleAppBAR: 'Diet Recommendation'),
             )
             );
   }

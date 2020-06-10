@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/ArticleScreenClass.dart';
 import 'package:tutorials_test/models/ArticleClass.dart';
-import 'package:tutorials_test/models/UitlisateurClass.dart';
-import 'package:tutorials_test/widgets/customNavBar.dart';
+
+
 import 'List_learn_more.dart';
 
 class LearnMorePage extends StatefulWidget {
-  Utilisateur user ;
-  LearnMorePage({this.user});
+   
+  LearnMorePage();
   @override
   _LearnMorePageState createState() => _LearnMorePageState();
 }
@@ -84,7 +84,7 @@ class _LearnMorePageState extends State<LearnMorePage> {
                           context,
                           MaterialPageRoute(
                             builder: (_) =>
-                                ArticleScreen(article: article, articleTitle: 'Learn More',),
+                                ArticleScreen(article: article, articleTitleAppBAR: 'Learn More',),
                           ),
                         ),
                         child: Container(

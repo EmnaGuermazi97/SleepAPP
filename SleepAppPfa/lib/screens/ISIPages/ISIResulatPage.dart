@@ -141,7 +141,9 @@ class _ResultPageState extends State<ResultPage> {
                   onPressed: () {
                     Navigator.of(context).popUntil((route) => route.isFirst);
                   },
-                  color: Colors.blue)
+                  //color: Colors.blue
+                  color: Color(0xff01579B),
+                  )
             ],
           ),
         ),

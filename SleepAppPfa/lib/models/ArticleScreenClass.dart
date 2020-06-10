@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/ArticleClass.dart';
 import 'package:tutorials_test/widgets/articleStructure.dart';
-import '../widgets/customNavBar.dart';
+
 
 class ArticleScreen extends StatefulWidget {
   final Article article;
-  final String articleTitle;
-  ArticleScreen({this.article, this.articleTitle});
+  final String articleTitleAppBAR;
+  ArticleScreen({this.article, this.articleTitleAppBAR});
 
   @override
-   createState() => _ArticleScreen();
+   createState() => _ArticleScreenState();
 }
 
-class _ArticleScreen extends State<ArticleScreen> {
+class _ArticleScreenState extends State<ArticleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
               leading: Container(),
-              title: Text(widget.articleTitle),
+              title: Text(widget.articleTitleAppBAR),
               centerTitle: true,
             ),
            // bottomNavigationBar: customNavBar(context, 0),

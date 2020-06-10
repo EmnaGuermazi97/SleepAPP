@@ -1,143 +1,86 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:tutorials_test/models/AudioToolsClass.dart';
-import 'package:tutorials_test/widgets/customNavBar.dart';
+import 'package:tutorials_test/models/CategoryCardClass.dart';
+import 'package:tutorials_test/screens/helpMeSleepPages/peaceful_melody1.dart';
+import 'package:tutorials_test/screens/helpMeSleepPages/peaceful_melody2.dart';
+import 'package:tutorials_test/screens/helpMeSleepPages/peaceful_melody3.dart';
+import 'package:tutorials_test/screens/helpMeSleepPages/rain_drops.dart';
 
 class RelaxingMusic extends StatefulWidget {
   @override
-  _RelaxingMusic createState() => _RelaxingMusic();
-  // RelaxingMusic({Key: key}) : super(key: key);
+  _RelaxingMusicState createState() => _RelaxingMusicState();
 }
 
-class _RelaxingMusic extends State<RelaxingMusic> {
-  AudioTools audioTools = new AudioTools(
-      audioPlayer: new AudioPlayer(),
-      isPlaying: false,
-      firstTime: true,
-      currentTime: "00:00",
-      completeTime: "00:00");
-
-  @override
-  void initState() {
-    super.initState();
-
-    audioTools.audioPlayer.onAudioPositionChanged.listen((Duration duration) {
-      setState(() {
-        audioTools.currentTime = duration.toString().split(".")[0];
-      });
-    });
-
-    audioTools.audioPlayer.onDurationChanged.listen((Duration duration) {
-      setState(() {
-        audioTools.completeTime = duration.toString().split(".")[0];
-      });
-    });
-  }
-
+class _RelaxingMusicState extends State<RelaxingMusic> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: Container(),
-        title: Text("Relaxing Music"),
-        centerTitle: true,
-      ),
-      bottomNavigationBar: customNavBar(context, 0),
-      body: SafeArea(
-        child: Stack(
-          children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.orange[50],
-                image: DecorationImage(
-                  image: AssetImage("assets/images/relaxation-png-1.png"),
-                ),
-              ),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  height: 80,
-                  margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.65,
-                    left: MediaQuery.of(context).size.width * 0.1,
-                    right: MediaQuery.of(context).size.width * 0.1,
+    return SafeArea(
+        child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 50.0),
+                    child: Text(
+                      "Your play List for better Sleep!!",
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.display1.copyWith(
+                            fontWeight: FontWeight.w400,
+                            color: Colors.cyan[600],
+                            fontSize: 30,
+                          ),
+                    ),
                   ),
-                  decoration: BoxDecoration(
-                      color: Colors.orange[100],
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.orange[100].withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(
-                            3,
-                            0,
-                          ), // changes position of shadow
+                  Expanded(
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      childAspectRatio: .85,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20,
+                      children: <Widget>[
+                        CategoryCard(
+                          title: "Rain Drops",
+                          imgSrc: "assets/images/rainDrops1.jpg",
+                          press: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return RainDropsSongPage();
+                            }));
+                          },
+                        ),
+                        CategoryCard(
+                          title: "Peaceful Melody n°1",
+                          imgSrc: "assets/images/piano.png",
+                          press: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return FirstSongPage();
+                            }));
+                          },
+                        ),
+                        CategoryCard(
+                          title: "Peaceful Melody n°2",
+                          imgSrc: "assets/images/instrument.jpg",
+                          press: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return SecondeSongPage();
+                            }));
+                          },
+                        ),
+                        CategoryCard(
+                          title: "Peaceful Melody n°3",
+                          imgSrc: "assets/images/guitare.png",
+                          press: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return ThirdSongPage();
+                            }));
+                          },
                         ),
                       ],
-                      borderRadius: BorderRadius.circular(50)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(audioTools.isPlaying ? Icons.pause : Icons.play_arrow),
-                        onPressed: () {
-                          if (audioTools.isPlaying) {
-                            audioTools.audioPlayer.pause();
-
-                            setState(() {
-                              audioTools.firstTime = false;
-                              audioTools.isPlaying = false;
-                            });
-                          } else {
-                            if (!audioTools.firstTime) {
-                              audioTools.audioPlayer.resume();
-
-                              setState(() {
-                                audioTools.firstTime = false;
-                                audioTools.isPlaying = true;
-                              });
-                            } else {
-                              audioTools.startPlayingFromScratch(
-                                  "audios/meditate.mp3");
-                            }
-                          }
-                        },
-                      ),
-                      SizedBox(
-                        width: 16,
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.stop),
-                        onPressed: () {
-                          audioTools.audioPlayer.stop();
-
-                          setState(() {
-                            audioTools.isPlaying = false;
-                          });
-                        },
-                      ),
-                      Text(
-                        audioTools.currentTime,
-                        style: TextStyle(fontWeight: FontWeight.w700),
-                      ),
-                      Text(" | "),
-                      Text(
-                        audioTools.completeTime,
-                        style: TextStyle(fontWeight: FontWeight.w300),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
+                    ),
+                  )
+                ])));
   }
 }

@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:firebase_database/firebase_database.dart';
 import 'package:tutorials_test/models/sleepDataCollection.dart';
 
@@ -10,8 +10,12 @@ class Utilisateur {
   String email;
   String isiResult;
   String profilePicName;
+<<<<<<< HEAD
   String urlPic;
   Map<dynamic, dynamic> sleepDataMap;
+=======
+ 
+>>>>>>> 64058cb52ff8dd2d1f8c5ddaf854c6fb0f14e0c5
   Utilisateur(String userid) {
     this.userID = userid;
     var db = FirebaseDatabase.instance.reference().child("users");
@@ -24,9 +28,14 @@ class Utilisateur {
           this.location = values['location'];
           this.email = values['Email'];
           this.isiResult = values['isiResult'];
+<<<<<<< HEAD
           this.profilePicName = values['profilePicName'];
           this.urlPic = values['urlPic'];
           //this.sleepDataMap=values['sleepDataMap'];
+=======
+          this.profilePicName= values['profilePicName'];
+        
+>>>>>>> 64058cb52ff8dd2d1f8c5ddaf854c6fb0f14e0c5
           print(this.email);
         }
       });

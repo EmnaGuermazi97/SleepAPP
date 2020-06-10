@@ -15,9 +15,18 @@ Widget navigationButton(BuildContext context, String title,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),
+<<<<<<< HEAD
         color: Color(0xff476cfb),
         // color:Color.fromRGBO(143, 148, 251, 1),
         // color: Colors.blue,
+=======
+        
+      //  color: Color(0xff476cfb),
+        color: Color(0xff01579B),
+       
+       // color:Color.fromRGBO(143, 148, 251, 1),
+       // color: Colors.blue,
+>>>>>>> 64058cb52ff8dd2d1f8c5ddaf854c6fb0f14e0c5
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
