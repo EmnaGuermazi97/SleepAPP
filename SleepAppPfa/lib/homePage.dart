@@ -7,9 +7,11 @@ import 'package:tutorials_test/widgets/navigationButtonISI.dart';
 import 'services/authentication.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.auth, this.userId, this.logoutCallback,this.user})
-      : super(key: key){print("this is actual HomePage/n");
-     print("this is user Id/n"+userId);}
+  HomePage({Key key, this.auth, this.userId, this.logoutCallback, this.user})
+      : super(key: key) {
+    print("this is actual HomePage/n");
+    print("this is user Id/n" + userId);
+  }
 
   Utilisateur user;
   final BaseAuth auth;
@@ -21,7 +23,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
- 
   signOut() async {
     try {
       print("i am at homePageNavbar");
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
       await widget.auth.signOut();
       print('this is after the sigout  function');
       widget.logoutCallback();
-    print('this is after the logoutCallback function');
+      print('this is after the logoutCallback function');
     } catch (e) {
       print(e);
     }
@@ -59,8 +60,10 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                 /* (navigationButton(context, 'Connect Watch',
-                      img: 'assets/images/bluetooth.png')),*/
+                  navigationButtonID(context, 'How Did You Sleep ?',
+                      img: 'assets/images/wondericon.png',
+                      routeName: '/dataEntryPage',
+                      user: userHome),
                   navigationButton(context, 'Learn More',
                       img: 'assets/images/learn1.png',
                       routeName: '/learnMorePage'),
@@ -68,18 +71,19 @@ class _HomePageState extends State<HomePage> {
                       img: 'assets/images/help1.png',
                       routeName: '/help_me_sleep'),
                   navigationButtonISI(context, 'Insomnia Sleep Index',
-                      img: 'assets/images/isi5.png', routeName: '/ISIPage',user: userHome),
+                      img: 'assets/images/isi5.png',
+                      routeName: '/ISIPage',
+                      user: userHome),
                 ]),
           ),
         ),
-         bottomNavigationBar: customNavBar(
+        bottomNavigationBar: customNavBar(
           context,
           0,
           userId: widget.userId,
           auth: widget.auth,
           logoutCallback: widget.logoutCallback,
         ),
-     
       ),
     );
   }

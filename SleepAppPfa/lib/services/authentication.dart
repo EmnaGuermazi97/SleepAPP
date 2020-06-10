@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:tutorials_test/models/sleepDataCollection.dart';
 
 abstract class BaseAuth {
   Future<String> signIn(String email, String password);
@@ -40,7 +41,7 @@ class Auth implements BaseAuth {
       'birthDay': "DD/MM/YYYY",
       'location': "Unkown",
       'Email': email,
-      'isiResult': 'Not token Yet',
+      'isiResult': 'Not Taken Yet',
       'profilePicName': "profilDefaultImage.jpg",
       'urlPic': " ",
     }).catchError((onError) => print(onError));

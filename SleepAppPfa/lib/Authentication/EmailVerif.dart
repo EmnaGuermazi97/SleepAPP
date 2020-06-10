@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePageVerif> {
     }
   }
 
-  void _resentVerifyEmail(){
+  void _resentVerifyEmail() {
     widget.auth.sendEmailVerification();
     _showVerifyEmailSentDialog();
   }
@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePageVerif> {
         return AlertDialog(
           title: new Text("Verify your account"),
           content: new Text("Please verify account in the link sent to email"),
-         actions: <Widget>[
+          actions: <Widget>[
             new FlatButton(
               child: new Text("Resent link"),
               onPressed: () {
@@ -87,8 +87,8 @@ class _HomePageState extends State<HomePageVerif> {
           ],
         );
       },
-   );
- }
+    );
+  }
 
   void _showVerifyEmailSentDialog() {
     showDialog(
@@ -97,7 +97,8 @@ class _HomePageState extends State<HomePageVerif> {
         // return object of type Dialog
         return AlertDialog(
           title: new Text("Verify your account"),
-          content: new Text("Link to verify account has been sent to your email"),
+          content:
+              new Text("Link to verify account has been sent to your email"),
           actions: <Widget>[
             new FlatButton(
               child: new Text("Dismiss"),
@@ -249,9 +250,9 @@ class _HomePageState extends State<HomePageVerif> {
   }
 */
   @override
-   Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return new Scaffold(
-     /*  appBar: new AppBar(
+      /*  appBar: new AppBar(
           title: new Text('Home'),
           actions: <Widget>[
             new FlatButton(
@@ -260,17 +261,19 @@ class _HomePageState extends State<HomePageVerif> {
                 onPressed: signOut)
           ],
         ),*/
-        body: new HomePage(userId: widget.userId,
-            auth: widget.auth,
-            logoutCallback: widget.logoutCallback,),
-        //showTodoList(),
-        /*floatingActionButton: FloatingActionButton(
+      body: new HomePage(
+        userId: widget.userId,
+        auth: widget.auth,
+        logoutCallback: widget.logoutCallback,
+      ),
+      //showTodoList(),
+      /*floatingActionButton: FloatingActionButton(
           onPressed: () {
             showAddTodoDialog(context);
           },
           tooltip: 'Increment',
           child: Icon(Icons.add),
         )*/
-        );
+    );
   }
 }

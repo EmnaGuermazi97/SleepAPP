@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-
+import 'package:tutorials_test/models/sleepDataCollection.dart';
 
 class Utilisateur {
   String userID;
@@ -9,9 +9,9 @@ class Utilisateur {
   String location;
   String email;
   String isiResult;
- 
   String profilePicName;
   String urlPic;
+  Map<dynamic, dynamic> sleepDataMap;
   Utilisateur(String userid) {
     this.userID = userid;
     var db = FirebaseDatabase.instance.reference().child("users");
@@ -24,17 +24,29 @@ class Utilisateur {
           this.location = values['location'];
           this.email = values['Email'];
           this.isiResult = values['isiResult'];
-          this.profilePicName= values['profilePicName'];
-          this.urlPic=values['urlPic'];
+          this.profilePicName = values['profilePicName'];
+          this.urlPic = values['urlPic'];
+          //this.sleepDataMap=values['sleepDataMap'];
           print(this.email);
         }
       });
-    }
-    );
+    });
+    var dbvalues = FirebaseDatabase.instance
+        .reference()
+        .child("users")
+        .child(userID)
+        .child('sleepData');
+    dbvalues.once().then((DataSnapshot snapshot) {
+      sleepDataMap = snapshot.value;
+    });
   }
 
-  loadUserData(String userid)async {
-    this.userID=userid;
+  getSleepData(){
+    return(this.sleepDataMap);
+  }
+
+  loadUserData(String userid) async {
+    this.userID = userid;
     var db = FirebaseDatabase.instance.reference().child("users");
     await db.once().then((DataSnapshot snapshot) {
       Map<dynamic, dynamic> values = snapshot.value;
@@ -44,12 +56,11 @@ class Utilisateur {
           this.birthDay = values['birthDay'];
           this.location = values['location'];
           this.email = values['Email'];
-          
         }
       });
     });
-    
   }
+
   Map<String, dynamic> toJason() => {
         'UserID': userID,
         'userName': userName,

@@ -41,11 +41,11 @@ Widget  customNavBar(BuildContext context, int activeIndex,
           ),
           onPressed: () {
            print('this is JournalPage');
-           print('this is userId  '+userId);
+           //print('this is userId  '+userId);
           //Navigator.pop(context);
             //Navigator.of(context).popUntil((route) => route.isFirst);
             Navigator.push(context,MaterialPageRoute(builder: (context) =>JournalPage(
-                userId: userId, auth: auth, logoutCallback: logoutCallback 
+                userId: userId, auth: auth, logoutCallback: logoutCallback ,user: user,
                 )
                 ));
          
