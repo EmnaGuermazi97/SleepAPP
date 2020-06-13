@@ -76,7 +76,7 @@ class _RootPageState extends State<RootPage> {
           auth: widget.auth,
           loginCallback: loginCallback,
         );
-        break;
+        break; 
       case AuthStatus.LOGGED_IN:
         if (_userId.length > 0 && _userId != null) {
           //the user has logged in so he will be sent to EmailVerif.dart

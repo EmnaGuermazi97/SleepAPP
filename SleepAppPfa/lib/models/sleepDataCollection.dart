@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tutorials_test/screens/dataEntryPage.dart';
+import 'package:tutorials_test/screens/how_did_you_sleep/dataEntryPage.dart';
+
 
 class DailyData {
   String date;

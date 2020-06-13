@@ -9,7 +9,7 @@ import 'services/authentication.dart';
 import 'homePage.dart';
 import 'journalPage.dart';
 import 'profilePage.dart';
-import 'package:tutorials_test/screens/dataEntryPage.dart';
+import 'package:tutorials_test/screens/how_did_you_sleep/dataEntryPage.dart';
 import 'package:syncfusion_flutter_core/core.dart';
 
 void main() {

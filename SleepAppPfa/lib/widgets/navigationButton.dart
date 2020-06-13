@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutorials_test/models/UitlisateurClass.dart';
-import 'package:tutorials_test/screens/dataEntryPage.dart';
+import 'package:tutorials_test/screens/how_did_you_sleep/dataEntryPage.dart';
 
 Widget navigationButton(BuildContext context, String title,
     {String img, String routeName, Utilisateur user}) {
@@ -15,18 +15,15 @@ Widget navigationButton(BuildContext context, String title,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),
-<<<<<<< HEAD
-        color: Color(0xff476cfb),
+        //color: Color(0xff476cfb),
         // color:Color.fromRGBO(143, 148, 251, 1),
         // color: Colors.blue,
-=======
         
       //  color: Color(0xff476cfb),
-        color: Color(0xff01579B),
+        color: Color(0xff01579B),  //try this too
        
        // color:Color.fromRGBO(143, 148, 251, 1),
        // color: Colors.blue,
->>>>>>> 64058cb52ff8dd2d1f8c5ddaf854c6fb0f14e0c5
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -61,7 +58,8 @@ Widget navigationButtonID(BuildContext context, String title,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),
-        color: Color(0xff476cfb),
+        color: Color(0xff01579B),
+        //color: Color(0xff476cfb),
         // color:Color.fromRGBO(143, 148, 251, 1),
         // color: Colors.blue,
         child: Row(

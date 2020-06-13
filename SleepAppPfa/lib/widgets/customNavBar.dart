@@ -45,11 +45,7 @@ Widget  customNavBar(BuildContext context, int activeIndex,
           //Navigator.pop(context);
             //Navigator.of(context).popUntil((route) => route.isFirst);
             Navigator.push(context,MaterialPageRoute(builder: (context) =>JournalPage(
-<<<<<<< HEAD
-                userId: userId, auth: auth, logoutCallback: logoutCallback ,user: user,
-=======
-                userId: userId
->>>>>>> 64058cb52ff8dd2d1f8c5ddaf854c6fb0f14e0c5
+                userId: userId,user: user,
                 )
                 ));
          

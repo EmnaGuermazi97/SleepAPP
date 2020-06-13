@@ -30,11 +30,7 @@ final List<ChartData> chartData = [
 */
 
 class JournalPage extends StatefulWidget {
-<<<<<<< HEAD
-  JournalPage({Key key, this.auth, this.userId, this.logoutCallback, this.user})
-=======
   JournalPage({Key key, this.userId, this.user})
->>>>>>> 64058cb52ff8dd2d1f8c5ddaf854c6fb0f14e0c5
       : super(key: key) {
     print("this is actual journalPage/n");
     print("this is user Id : " + userId);
